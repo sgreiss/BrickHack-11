@@ -8,9 +8,6 @@ public abstract class interactable {
         usable = true;
         this.name = name;
     }
-
-    
-
     public boolean use(){
         if (usable == true){
             usable = false;
