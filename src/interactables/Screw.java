@@ -1,4 +1,4 @@
-package src.interactables;
+package src.Interactables;
 
 import src.Item;
 import src.Item.item_type;
