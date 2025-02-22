@@ -15,16 +15,21 @@ public class Player {
         known_hints = new boolean[ALLHINTS.size()];
     }
 
-    public void addHint(Interactable i) {
-        // known_hints.add(ALLHINTS.get(i));
-    }
-    public String list_inv(){
-        StringBuilder str = new StringBuilder("(");
-        for (Item i : inventory){
-            str.append(i.getName() + ", ");
-
+    public void addHint(interactable i) {
+        for (int j = 0; j < known_hints.length; j++) {
+            if (known_hints[j] == false) {
+                known_hints[j] = true;
+                break;
+            }
         }
-        str.append(")");
-        return str.toString();
     }
+
+    public void addItem(item i) {
+        for (int j = 0; j < inventory.length; j++) {
+            if (inventory[j] == null) {
+                inventory[j] = i;
+                break;
+            }
+        }
+    }    
 }
