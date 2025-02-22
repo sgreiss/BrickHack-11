@@ -14,11 +14,11 @@ public class Lock extends Interactable {
         this.type = type;
         
         switch(type) {
-            case lock_type.COMBO:
-                code = Integer.valueOf(unlock); //assumes that if the combo type is selected then the String will be a valid int
+            case COMBO:
+                code = Integer.parseInt(unlock); //assumes that if the combo type is selected then the String will be a valid int
                 key = null;
                 break;
-            case lock_type.KEY:
+            case KEY:
                 key = unlock; //assumes that unlock will be the name of the key that unlocks it
                 code = 0;
                 break;
