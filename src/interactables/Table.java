@@ -1,4 +1,4 @@
-package src.interactables;
+package src.Interactables;
 import java.util.ArrayList;
 
 public class Table extends Interactable{

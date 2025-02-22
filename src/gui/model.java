@@ -1,5 +1,6 @@
-package src.gui;
+package src.Gui;
 
-public class model {
-    public static final int 
+public class Model {
+    public static final int DIM = -1;
+
 }

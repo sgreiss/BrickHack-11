@@ -1,5 +1,5 @@
-package src.gui;
+package src.Gui;
 
-public class gui {
+public class Gui {
     
 }

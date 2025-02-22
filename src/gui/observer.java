@@ -1,5 +1,5 @@
-package src.gui;
+package src.Gui;
 
-public interface observer<Subject, ClientData> {
+public interface Observer<Subject, ClientData> {
     void update(Subject subject, ClientData data);
 }

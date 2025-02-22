@@ -1,4 +1,4 @@
-package src.interactables;
+package src.Interactables;
 public abstract class Interactable {
     //types: safe, table, paper
     private boolean usable; //whether the object can be interacted with or not

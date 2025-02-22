@@ -1,5 +1,5 @@
 package src;
-import src.interactables.Interactable;
+import src.Interactables.Interactable;
 import java.util.*;
 
 public class Player {
