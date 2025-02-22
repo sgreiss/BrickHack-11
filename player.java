@@ -13,16 +13,10 @@ public class player {
         known_hints = new boolean[ALLHINTS.size()];
     }
 
-    public void addHint(interactable i) {
-        // known_hints[]
+    public void addHint(interactable i)){
+        knownhints.add(ALLHINTS.get(i));
+        
     }
 
-    public void addItem(item i) {
-        for (int j = 0; j < inventory.length; j++) {
-            if (inventory[j] == null) {
-                inventory[j] = i;
-                break;
-            }
-        }
-    }
+    
 }
