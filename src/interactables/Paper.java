@@ -1,13 +1,13 @@
 package src.Interactables;
 
-public class Paper extends Interactable{
+public class Paper extends Interactable {
     private String contents;
 
-    public Paper (String name, String contents){
+    public Paper (String name, String contents) {
         super(name);
         this.contents = contents;
     }
-    public String getContents(){
+    public String getContents() {
         return contents;
     }
 }

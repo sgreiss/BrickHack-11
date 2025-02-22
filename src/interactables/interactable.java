@@ -9,7 +9,7 @@ public abstract class Interactable {
         this.name = name;
     }
     public boolean use() {
-        if (usable == true){
+        if (usable){
             usable = false;
             return true;
         }

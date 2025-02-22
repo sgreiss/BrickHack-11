@@ -34,7 +34,7 @@ public class Player {
             }
         }
     }
-    public void writeInNotebook(String hint){
+    public void writeInNotebook(String hint) {
         notebook.add(hint);
     }   
 }

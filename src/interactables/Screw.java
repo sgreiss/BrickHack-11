@@ -8,10 +8,9 @@ public class Screw extends Interactable {
         super(screwname);
     }
     public boolean unscrew(Item i) {
-        if (i.getType() == item_type.SCREWDRIVER){
-            super.use();
-            return true;
+        if (i.getType() != item_type.SCREWDRIVER || !getUsable()) {
+            return false;
         }
-        return false;
+        return use();
     }
 }
