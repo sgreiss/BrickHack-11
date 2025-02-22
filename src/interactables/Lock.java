@@ -1,5 +1,6 @@
 package src.Interactables;
 import src.Item;
+import src.Item.item_type;
 
 public class Lock extends Interactable {
     public enum lock_type {
@@ -27,12 +28,14 @@ public class Lock extends Interactable {
         if (type != lock_type.COMBO || i != code){
             return false;
         }
+        super.use();
         return true;
     }
     public boolean keyUnlock(Item i){
-        if (type != lock_type.KEY || !i.getName().equals(key)){
+        if (type != lock_type.KEY || i.getType() != item_type.KEY || !i.getName().equals(key)){
             return false;
         }
+        super.use();
         return true;
     }
 
