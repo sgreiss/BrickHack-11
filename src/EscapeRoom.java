@@ -1,5 +1,7 @@
 package src;
 
+import src.Item;
+import src.Item.item_type;
 import src.Interactables.ComboLock;
 
 public class EscapeRoom {
@@ -9,5 +11,6 @@ public class EscapeRoom {
     //Main function to test all classes
     public static void main(String[] args) {
         ComboLock lock = new ComboLock(4576, "Greiss");
+        Item key = new Item(item_type.KEY, "key");
     }
 }
