@@ -9,6 +9,7 @@ Spencer Greiss, Ryan Kong, Matthew Gookin
 
 # Tasks:
 Spencer Greiss: work on the escape room
-Ryan Kong: storytelling and tool classes
-Matthew Gookin: assets 
 
+Ryan Kong: storytelling and tool classes
+
+Matthew Gookin: assets
