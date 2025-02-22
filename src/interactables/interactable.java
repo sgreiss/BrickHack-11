@@ -20,7 +20,7 @@ public class Interactable {
     public String getName() {
         return name;
     }
-    public boolean getUsable() {
+    public boolean isUsable() {
         return usable;
     }
 }
