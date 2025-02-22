@@ -1,6 +1,6 @@
 package src;
 public class Item {
-    private static enum item_type {
+    public static enum item_type {
         KEY, SCREWDRIVER, NOTEBOOK, BANANA;
     }
     private item_type type; // the type of item
