@@ -18,4 +18,13 @@ public class player {
     public void addHint(interactable i) {
         // known_hints.add(ALLHINTS.get(i));
     }
+    public String list_inv(){
+        StringBuilder str = new StringBuilder("(");
+        for (item i : inventory){
+            str.append(i.getName() + ", ");
+
+        }
+        str.append(")");
+        return str.toString();
+    }
 }
