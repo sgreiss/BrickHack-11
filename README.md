@@ -8,8 +8,8 @@ Escape room puzzle game built with JavaFX GUI's.
 Spencer Greiss, Ryan Kong, Matthew Gookin
 
 # Tasks:
-Spencer Greiss: work on the escape room
+Spencer Greiss: GUI, Model, Player, and Item
 
-Ryan Kong: storytelling and tool classes
+Ryan Kong: Interactables, EscapeRoom
 
-Matthew Gookin: assets
+Matthew Gookin: Sprite Assets
