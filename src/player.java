@@ -7,12 +7,14 @@ public class Player {
     private static final HashMap<Interactable, String> ALLHINTS = new HashMap<>() {
  
     };
+    private ArrayList<String> notebook;
     private static boolean[] known_hints;
 
 
     public Player() {
         inventory = new Item[6];
         known_hints = new boolean[ALLHINTS.size()];
+        notebook = new ArrayList<>();
     }
 
     public void addHint(Interactable i) {
@@ -31,5 +33,8 @@ public class Player {
                 break;
             }
         }
-    }    
+    }
+    public void writeInNotebook(String hint){
+        notebook.add(hint);
+    }   
 }

@@ -28,8 +28,6 @@ public class EscapeRoom {
         Item banana = new Item(item_type.BANANA, "Ripe Banana");
         //declaring a screwdriver
         Item screwdriver = new Item(item_type.SCREWDRIVER, "CAT Screwdriver");
-        //declaring a notebook
-        Item notebook = new Item(item_type.NOTEBOOK, "Composition Notebook");
 
         //placing objects on table
         table.placeOnTop(screw);
@@ -51,7 +49,7 @@ public class EscapeRoom {
             System.out.println(combolock.getName() + " unlocked with code 1357");
         }
         if (!keylock.getUsable()){
-            System.out.println("lock already unlocked");
+            System.out.println("Lock already Unlocked");
         }
     }
 }
