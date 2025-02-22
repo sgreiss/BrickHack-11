@@ -1,7 +1,7 @@
 package src;
 public class Item {
     public static enum item_type {
-        KEY, SCREWDRIVER, NOTEBOOK, BANANA;
+        KEY, SCREWDRIVER, NOTEBOOK, BANANA, BANANA_PEEL;
     }
     private item_type type; // the type of item
     private String name; // the name of the item
@@ -14,15 +14,23 @@ public class Item {
         switch(type) {
             case item_type.KEY:
                 description = "Used to unlock keylocks";
+                menu = "";
                 break;
             case item_type.SCREWDRIVER:
                 description = "Used to take out screws";
+                menu = "";
                 break;
             case item_type.NOTEBOOK:
                 description = "Used to store collected hints";
+                menu = "";
                 break;
             case item_type.BANANA:
                 description = "Used to gain potassium";
+                menu = "";
+                break;
+            case item_type.BANANA_PEEL:
+                description = "Potassium gained, trash obtained";
+                menu = "";
                 break;
         }
     }
