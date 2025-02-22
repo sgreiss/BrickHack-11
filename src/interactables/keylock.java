@@ -1,9 +1,9 @@
-package src.interactables;
+package src.Interactables;
 import src.Item;
-public class Keylock extends Interactable{
+public class KeyLock extends Interactable{
     private String keyname; //key needed to unlock lock
 
-    public Keylock(String keyname, String lockname){
+    public KeyLock(String keyname, String lockname){
         super(lockname);
         this.keyname = keyname;
     }
