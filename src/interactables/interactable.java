@@ -2,9 +2,11 @@ package src.interactables;
 public abstract class interactable {
     //types: safe, table, paper
     private boolean usable;
+    private String name;
 
-    public interactable(){
+    public interactable(String name){
         usable = true;
+        this.name = name;
     }
 
     
