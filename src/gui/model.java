@@ -1,6 +1,6 @@
 package src.Gui;
 
-import java.util.List;
+import java.util.*;
 
 public class Model {
     public static final int DIM = -1;
@@ -9,7 +9,14 @@ public class Model {
     private final List<Observer<Model, String>> observers;
 
     public Model() {
-        
+        this.observers = new ArrayList<>();
+        init();
+    }
+
+    public void init() {
+        screen = new String[DIM][DIM];
+        screenNum = 0;
+        notifyObservers();
     }
 
 }
