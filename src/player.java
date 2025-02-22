@@ -15,7 +15,7 @@ public class Player {
         known_hints = new boolean[ALLHINTS.size()];
     }
 
-    public void addHint(interactable i) {
+    public void addHint(Interactable i) {
         for (int j = 0; j < known_hints.length; j++) {
             if (known_hints[j] == false) {
                 known_hints[j] = true;
@@ -24,7 +24,7 @@ public class Player {
         }
     }
 
-    public void addItem(item i) {
+    public void addItem(Item i) {
         for (int j = 0; j < inventory.length; j++) {
             if (inventory[j] == null) {
                 inventory[j] = i;
