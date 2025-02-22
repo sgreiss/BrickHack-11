@@ -1,4 +1,5 @@
 package src.interactables;
+import src.item;
 public abstract class keylock extends interactable{
     private String keyname;
 
@@ -9,7 +10,9 @@ public abstract class keylock extends interactable{
     public boolean unlock(item key){
         if (key.getName() == keyname){
             super.use();
+            return true;
         }
+        return false;
 
     }
 }
