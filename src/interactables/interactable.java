@@ -6,6 +6,9 @@ public abstract class interactable {
     public interactable(){
         usable = true;
     }
+
+    
+
     public boolean use(){
         if (usable == true){
             usable = false;
