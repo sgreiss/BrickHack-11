@@ -1,8 +1,8 @@
 package src.Interactables;
 import java.util.ArrayList;
 
-public class Table extends Interactable{
-    private ArrayList<Interactable> onTop;
+public class Table {
+    private ArrayList<> onTop;
     public Table(String name) {
         super(name);
         onTop = new ArrayList<>();

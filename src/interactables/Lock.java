@@ -25,16 +25,17 @@ public class Lock extends Interactable {
         }
     }
     public boolean comboUnlock(int i){
-        if (type != lock_type.COMBO || i != code || !getUsable()) {
+        if (type != lock_type.COMBO || i != code){
             return false;
         }
-        return use();
+        return
     }
     public boolean keyUnlock(Item i){
-        if (type != lock_type.KEY || i.getType() != item_type.KEY || !i.getName().equals(key) || !getUsable()) {
+        if (type != lock_type.KEY || i.getType() != item_type.KEY || !i.getName().equals(key)){
             return false;
         }
-        return use();
+        super.use();
+        return true;
     }
 
     

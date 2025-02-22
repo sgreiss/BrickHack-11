@@ -1,5 +1,5 @@
 package src.Interactables;
-public abstract class Interactable {
+public class Interactable {
     //types: safe, table, paper
     private boolean usable; //whether the object can be interacted with or not
     private String name; //name of the interactable object
