@@ -3,4 +3,4 @@
 - Standing in the center
 - Can find different items and clues
 - Several puzzles to get new items and clues
-- Final key to unlock the lock
+- Final key to unlock the lock 
