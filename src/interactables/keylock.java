@@ -1,9 +1,10 @@
 package src.interactables;
 import src.item;
-public abstract class keylock extends interactable{
+public class keylock extends interactable{
     private String keyname;
 
-    public keylock(String keyname){
+    public keylock(String keyname, String lockname){
+        super(lockname);
         this.keyname = keyname;
     }
 
