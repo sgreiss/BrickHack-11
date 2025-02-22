@@ -8,7 +8,7 @@ public class Keylock extends Interactable{
         this.keyname = keyname;
     }
 
-    public boolean unlock(item key){
+    public boolean unlock(Item key){
         if (key.getName() == keyname){
             super.use();
             return true;
