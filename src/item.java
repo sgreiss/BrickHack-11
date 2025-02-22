@@ -1,3 +1,4 @@
+package src;
 public class item {
     private static enum item_type {
         KEY, SCREWDRIVER, NOTEBOOK, BANANA;

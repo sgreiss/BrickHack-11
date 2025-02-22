@@ -1,4 +1,4 @@
-package interactables;
+package src.interactables;
 public abstract class interactable {
     //types: safe, table, paper
     private boolean usable;

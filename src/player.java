@@ -1,3 +1,5 @@
+package src;
+import src.interactables.interactable;
 import java.util.*;
 
 public class player {
@@ -13,10 +15,7 @@ public class player {
         known_hints = new boolean[ALLHINTS.size()];
     }
 
-    public void addHint(interactable i)){
-        knownhints.add(ALLHINTS.get(i));
-        
+    public void addHint(interactable i) {
+        // known_hints.add(ALLHINTS.get(i));
     }
-
-    
 }
