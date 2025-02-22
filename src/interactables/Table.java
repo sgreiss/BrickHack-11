@@ -7,7 +7,7 @@ public class Table extends Interactable{
         super(name);
         onTop = new ArrayList<>();
     }
-    public void placeontop(Interactable i){
+    public void placeOnTop(Interactable i){
         onTop.add(i);
     }
 }

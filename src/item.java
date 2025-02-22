@@ -8,11 +8,23 @@ public class Item {
     private String description; // the description of the item
     private String menu; // the menu that pulls up when the item is intereacted with
 
-    public Item(item_type type, String name, String description, String menu) {
+    public Item(item_type type, String name) {
         this.type = type;
         this.name = name;
-        this.description = description;
-        this.menu = menu;
+        switch(type) {
+            case item_type.KEY:
+                description = "Used to unlock keylocks";
+                break;
+            case item_type.SCREWDRIVER:
+                description = "Used to take out screws";
+                break;
+            case item_type.NOTEBOOK:
+                description = "Used to store collected hints";
+                break;
+            case item_type.BANANA:
+                description = "Used to gain potassium";
+                break;
+        }
     }
 
     public item_type getType() {
