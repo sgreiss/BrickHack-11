@@ -20,7 +20,7 @@ public class Item {
                 description = "Used to take out screws";
                 menu = "";
                 break;
-            case BANANA:
+            case BANANA: 
                 description = "Used to gain potassium";
                 menu = "";
                 break;

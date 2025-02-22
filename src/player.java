@@ -23,7 +23,7 @@ public class Player {
                 known_hints[j] = true;
                 break;
             }
-        }
+        } 
     }
 
     public void addItem(Item i) {

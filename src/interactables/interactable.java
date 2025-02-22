@@ -16,7 +16,7 @@ public class Interactable {
         else {
             return false;
         }
-    }
+    } 
     public String getName() {
         return name;
     }
