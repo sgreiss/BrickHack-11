@@ -4,11 +4,11 @@ public abstract class Interactable {
     private boolean usable; //whether the object can be interacted with or not
     private String name; //name of the interactable object
 
-    public Interactable(String name){
+    public Interactable(String name) {
         usable = true;
         this.name = name;
     }
-    public boolean use(){
+    public boolean use() {
         if (usable == true){
             usable = false;
             return true;
@@ -17,10 +17,10 @@ public abstract class Interactable {
             return false;
         }
     }
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public boolean getUsable(){
+    public boolean getUsable() {
         return usable;
     }
 }

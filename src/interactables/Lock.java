@@ -6,7 +6,7 @@ public class Lock extends Interactable {
     }
     private lock_type type; //type of lock
     private String key; //key for KEY type locks
-    private int code; //code for COMBO type locks
+    private int code; //code for COMBO type locks. Assumed to be a 4 digit number
     public Lock(lock_type type, String name, String unlock) {
         super(name);
         this.type = type;
@@ -14,9 +14,11 @@ public class Lock extends Interactable {
         switch(type) {
             case lock_type.COMBO:
                 code = Integer.valueOf(unlock); //assumes that if the combo type is selected then the String will be a valid int
+                key = null;
                 break;
             case lock_type.KEY:
                 key = unlock; //assumes that unlock will be the name of the key that unlocks it
+                code = 0;
                 break;
         }
     }

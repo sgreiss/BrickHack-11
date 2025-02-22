@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Player {
     private static Item[] inventory;
-    private static final HashMap<Interactable, String> ALLHINTS = new HashMap<>(){
-
+    private static final HashMap<Interactable, String> ALLHINTS = new HashMap<>() {
+ 
     };
     private static boolean[] known_hints;
 

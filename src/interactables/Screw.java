@@ -4,10 +4,10 @@ import src.Item;
 import src.Item.item_type;
 
 public class Screw extends Interactable {
-    public Screw(String screwname){
+    public Screw(String screwname) {
         super(screwname);
     }
-    public boolean unscrew(Item i){
+    public boolean unscrew(Item i) {
         if (i.getType() == item_type.SCREWDRIVER){
             super.use();
             return true;

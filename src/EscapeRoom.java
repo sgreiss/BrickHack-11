@@ -2,6 +2,7 @@ package src;
 
 import src.Item.item_type;
 import src.Interactables.*;
+import src.Interactables.Lock.lock_type;
 
 
 public class EscapeRoom {
@@ -10,11 +11,8 @@ public class EscapeRoom {
 
     //Main function to test all classes
     public static void main(String[] args) {
-        ComboLock lock = new ComboLock(4576, "Greiss");
-        Item key = new Item(item_type.KEY, "key");
-        KeyLock otherlock = new KeyLock("key", "Goonin");
-        if (otherlock.unlock(key)){
-            System.out.println(otherlock.getName() + " successfully unlocked");
-        }
+        //declaring a KeyLock
+        Lock keylock = new Lock(lock_type.KEY, "Red Lock", "Red Key");
+        Lock combolock = new Lock(lock_type.COMBO, "Blue Lock", "1357");
     }
 }
