@@ -12,6 +12,3 @@ Spencer Greiss: work on the escape room
 Ryan Kong: storytelling and tool classes
 Matthew Gookin: assets 
 
-# Ideas:
-Premise of the escape room:
-    Locked in the RIT inn

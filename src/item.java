@@ -1,5 +1,5 @@
 package src;
-public class item {
+public class Item {
     private static enum item_type {
         KEY, SCREWDRIVER, NOTEBOOK, BANANA;
     }
@@ -8,7 +8,7 @@ public class item {
     private String description; // the description of the item
     private String menu; // the menu that pulls up when the item is intereacted with
 
-    public item(item_type type, String name, String description, String menu) {
+    public Item(item_type type, String name, String description, String menu) {
         this.type = type;
         this.name = name;
         this.description = description;

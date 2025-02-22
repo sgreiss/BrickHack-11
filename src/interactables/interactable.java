@@ -1,10 +1,10 @@
 package src.interactables;
-public abstract class interactable {
+public abstract class Interactable {
     //types: safe, table, paper
     private boolean usable; //whether the object can be interacted with or not
     private String name; //name of the interactable object
 
-    public interactable(String name){
+    public Interactable(String name){
         usable = true;
         this.name = name;
     }

@@ -7,7 +7,8 @@
 
 # Puzzles
 - Receipt on a table will lead to eating a banana to gain the red key.
-
-
+- Numbers displayed on the wall to correspond to combination lock
+- UV Light
+- 
 # Potential additions
 - Magnifying glass

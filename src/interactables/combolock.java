@@ -1,8 +1,8 @@
 package src.interactables;
 
-public class combolock extends interactable{
-    private int code;
-    public combolock(int code, String lockname){
+public class Combolock extends Interactable{
+    private int code; //code to unlock lock
+    public Combolock(int code, String lockname){
         super(lockname);
         this.code = code;
     }
