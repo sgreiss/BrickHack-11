@@ -12,19 +12,19 @@ public class Item {
         this.type = type;
         this.name = name;
         switch(type) {
-            case item_type.KEY:
+            case KEY:
                 description = "Used to unlock keylocks";
                 menu = "";
                 break;
-            case item_type.SCREWDRIVER:
+            case SCREWDRIVER:
                 description = "Used to take out screws";
                 menu = "";
                 break;
-            case item_type.BANANA:
+            case BANANA:
                 description = "Used to gain potassium";
                 menu = "";
                 break;
-            case item_type.BANANA_PEEL:
+            case BANANA_PEEL:
                 description = "Potassium gained, trash obtained";
                 menu = "";
                 break;
