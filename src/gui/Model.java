@@ -8,6 +8,8 @@ import src.interactables.*;
 
 public class Model {
 
+    private Interactable focused;
+
     //Game Messages
     public static final String STARTMSG = "READ THE MESSAGE BELOW AND CLICK BUTTON TO START";
     public static final String WELCOME = "Welcome to the Escape Room!\nYou are trapped in a room and must find a way out.\nUse the items in the room to solve the puzzles and escape.\n\nPress ESC in-game to view keybinds.";
@@ -130,6 +132,31 @@ public class Model {
         if(currentscreen < 0) currentscreen = 3;
         else if(currentscreen > 3) currentscreen = 0;
         notifyObservers(String.format("Turned to screen %d", currentscreen));
+    }
+    public void advance(Interactable i){
+        focused = i;
+        notifyObservers(String.format("Advanced to ", focused.getName()));
+    }
+    public void retreat(){
+        focused = null;
+        notifyObservers(String.format("Turned to screen %d", currentscreen));
+    }
+    public boolean useItem(Interactable i){
+        if (player.getEquipped() == null) {
+            notifyObservers("No item equipped.");
+            return false;
+        }
+        if (i instanceof Screw){
+            return ((Screw)i).unscrew(player.getEquipped());
+        }
+        else if (i instanceof Lock){
+            return ((Lock)i).keyUnlock(player.getEquipped());
+        }
+        else{
+            notifyObservers("This item cannot be used here.");
+            return false;
+        }
+
     }
 
 }
