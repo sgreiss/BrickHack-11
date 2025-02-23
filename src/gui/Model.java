@@ -9,7 +9,7 @@ import src.interactables.*;
 public class Model {
 
     //Game Messages
-    public static final String STARTMSG = "Welcome to the Escape Room! You are trapped in a room and must find a way out. Use the items in the room to solve the puzzles and escape. Type 'help' for a list of commands.";
+    public static final String STARTMSG = "READ BELOW AND CLICK WHEN READY";
     public static final String UNUSABLE = "This item has no use anymore.";
     public static final String UNDISCOVERED = "No use for this yet.";
     public static final String LOCKED = "This item is locked.";
@@ -83,6 +83,9 @@ public class Model {
     public void addObserver(Observer<Model, String> observer) {
         this.observers.add(observer);
     }
+    public void ready(){
+        notifyObservers(STARTMSG);
+    }
     private void notifyObservers(String message) {
         for (Observer<Model, String> observer : observers) {
             observer.update(this, message);
@@ -112,7 +115,7 @@ public class Model {
         TABLE.placeOnTop(RECEIPT2);
         TABLE2.placeOnTop(BANANABOWL);
         
-        notifyObservers(STARTMSG);
+        ready();
     }
     public boolean isFinished(){
         return GOLDLOCK.isOpen();
