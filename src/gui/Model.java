@@ -23,51 +23,56 @@ public class Model {
     Player player = new Player();
 
     //5 locks
-    public final Lock REDLOCK = new Lock("Red Lock","Red Key");
-    public final Lock BLUELOCK = new Lock("Blue Lock","Blue Key");
-    public final Lock GREENLOCK = new Lock("Green Lock","Green Key");
-    public final Lock PURPLELOCK = new Lock("Purple Lock","Purple Key");
-    public final Lock GOLDLOCK = new Lock("Gold Lock","Gold Key");
-    public final ComboLock COMBOLOCK = new ComboLock("Combo Lock", 2620);
+    public static final Lock REDLOCK = new Lock("Red Lock","Red Key");
+    public static final Lock BLUELOCK = new Lock("Blue Lock","Blue Key");
+    public static final Lock GREENLOCK = new Lock("Green Lock","Green Key");
+    public static final Lock PURPLELOCK = new Lock("Purple Lock","Purple Key");
+    public static final Lock GOLDLOCK = new Lock("Gold Lock","Gold Key");
+    public static final ComboLock COMBOLOCK = new ComboLock("Combo Lock", 2620);
     //one screw
-    private final Screw VENTSCREW = new Screw("Vent Screw");
+    private static final Screw VENTSCREW = new Screw("Vent Screw");
     //5 keys
-    public final LockKey REDKEY = new LockKey("Red Key");
-    public final LockKey BLUEKEY = new LockKey("Blue Key");
-    public final LockKey GREENKEY = new LockKey("Green Key");
-    public final LockKey PURPLEKEY = new LockKey("Purple Key");
-    public final LockKey GOLDKEY = new LockKey("Gold Key"); //FINAL GOAL
+    public static final LockKey REDKEY = new LockKey("Red Key");
+    public static final LockKey BLUEKEY = new LockKey("Blue Key");
+    public static final LockKey GREENKEY = new LockKey("Green Key");
+    public static final LockKey PURPLEKEY = new LockKey("Purple Key");
+    public static final LockKey GOLDKEY = new LockKey("Gold Key"); //FINAL GOAL
     //2 other items
     public final Screwdriver SCREWDRIVER = new Screwdriver("Screwdriver");
     public final Banana BANANA = new Banana();
 
     //9 HINTS TOTAL: Cabinet, Drawer, Briefcase, Red Book, Blue Book, Screwdriver, Painting, Receipt1, Receipt2
-    public final Hint HINTBLU = new Hint("Hint 4", "My head's getting cold...");
-    public final Hint HINTSCR = new Hint("Hint 5", "Could this unscrew something?");
-    public final Hint HINTPAI = new Hint("Hint 6", "It's really pouring outside...");
-    public final Hint HINTRC1 = new Hint("Hint 7", "He has a bowl for just a single banana?");
-    public final Hint HINTRC2 = new Hint("Hint 8", "A receipt for only a single flower?");    
+    public static final Hint HINTCAB = new Hint("Hint 0", "2 _ _ _");
+    public static final Hint HINTDRA = new Hint("Hint 1", "_ 6 _ _");
+    public static final Hint HINTBRI = new Hint("Hint 2", "_ _ _ 0");
+    public static final Hint HINTRED = new Hint("Hint 3", "_ _ 2 _"); 
+    public static final Hint HINTBLU = new Hint("Hint 4", "My head's getting cold...");
+    public static final Hint HINTSCR = new Hint("Hint 5", "Could this unscrew something?");
+    public static final Hint HINTPAI = new Hint("Hint 6", "It's really pouring outside...");
+    public static final Hint HINTRC1 = new Hint("Hint 7", "He has a bowl for just a single banana?");
+    public static final Hint HINTRC2 = new Hint("Hint 8", "A receipt for only a single flower?");
+       
 
     //13 HINTHOLDERS TOTAL
-    public final HintCarrier VENT = new HintCarrier(h_type.LOCK, "Vent", VENTSCREW);
-    public final HintCarrier REDBOOK = new HintCarrier(h_type.LOCK, "Red Book", REDLOCK);
-    public final HintCarrier CABINET = new HintCarrier(h_type.LOCK, "Dresser Cabinet", GREENLOCK);
-    public final HintCarrier DRAWER = new HintCarrier(h_type.LOCK, "Dresser Drawer", BLUELOCK);
-    public final HintCarrier BRIEFCASE = new HintCarrier(h_type.LOCK, "Briefcase", PURPLELOCK);
-    public final HintCarrier SAFE = new HintCarrier(h_type.LOCK, "Safe", COMBOLOCK);
-    public final HintCarrier RECEIPT1 = new HintCarrier(h_type.NOLOCK, "Grocery Receipt", null);
-    public final HintCarrier RECEIPT2 = new HintCarrier(h_type.NOLOCK, "Florist Receipt", null);
-    public final HintCarrier BLUEBOOK = new HintCarrier(h_type.NOLOCK, "Blue Book", null);
-    public final HintCarrier FLOWERPOT = new HintCarrier(h_type.NOLOCK, "Flower Pot", null);
-    public final HintCarrier BANANABOWL = new HintCarrier(h_type.NOLOCK, "Banana Bowl", null);
+    public static final HintCarrier VENT = new HintCarrier(h_type.LOCK, "Vent", VENTSCREW);
+    public static final HintCarrier REDBOOK = new HintCarrier(h_type.LOCK, "Red Book", REDLOCK);
+    public static final HintCarrier CABINET = new HintCarrier(h_type.LOCK, "Dresser Cabinet", GREENLOCK);
+    public static final HintCarrier DRAWER = new HintCarrier(h_type.LOCK, "Dresser Drawer", BLUELOCK);
+    public static final HintCarrier BRIEFCASE = new HintCarrier(h_type.LOCK, "Briefcase", PURPLELOCK);
+    public static final HintCarrier SAFE = new HintCarrier(h_type.LOCK, "Safe", COMBOLOCK);
+    public static final HintCarrier RECEIPT1 = new HintCarrier(h_type.NOLOCK, "Grocery Receipt", null);
+    public static final HintCarrier RECEIPT2 = new HintCarrier(h_type.NOLOCK, "Florist Receipt", null);
+    public static final HintCarrier BLUEBOOK = new HintCarrier(h_type.NOLOCK, "Blue Book", null);
+    public static final HintCarrier FLOWERPOT = new HintCarrier(h_type.NOLOCK, "Flower Pot", null);
+    public static final HintCarrier BANANABOWL = new HintCarrier(h_type.NOLOCK, "Banana Bowl", null);
     public static final HintCarrier COATRACK = new HintCarrier(h_type.NOLOCK, "Coat Rack", null);
-    public final HintCarrier UMBRELLAHOLDER = new HintCarrier(h_type.NOLOCK, "Umbrella Holder", null);
-    public final HintCarrier PAINTING = new HintCarrier(h_type.NOLOCK, "Painting", null);
-    public final HintCarrier FPAINTING = new HintCarrier(h_type.NOLOCK, "Herring Painting", null);
+    public static final HintCarrier UMBRELLAHOLDER = new HintCarrier(h_type.NOLOCK, "Umbrella Holder", null);
+    public static final HintCarrier PAINTING = new HintCarrier(h_type.NOLOCK, "Painting", null);
+    public static final HintCarrier FPAINTING = new HintCarrier(h_type.NOLOCK, "Herring Painting", null);
 
     //2 Tables
-    public final Table TABLE = new Table("Table1");
-    public final Table TABLE2 = new Table("Table2");
+    public static final Table TABLE = new Table("Table1");
+    public static final Table TABLE2 = new Table("Table2");
 
     //Current screen
     private static int currentscreen;
