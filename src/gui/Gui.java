@@ -144,7 +144,6 @@ public class Gui extends Application implements Observer<Model, String> {
                     case 3:
                         screen3();
                 }
-                    break;
             }
         }
         else if(message.length() >= 11 && message.substring(0, 11).equals("Advanced to")) {
