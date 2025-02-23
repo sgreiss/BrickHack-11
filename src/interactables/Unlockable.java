@@ -2,7 +2,7 @@ package src.interactables;
 
 public class Unlockable extends Interactable {
     public enum u_type{
-        KEYLOCK, COMBO, SCREW;
+        KEYLOCK, SCREW;
     }
     private u_type type;
     public Unlockable(u_type type, String name){

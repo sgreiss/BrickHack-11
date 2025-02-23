@@ -14,8 +14,6 @@ public class EscapeRoom {
     public static void main(String[] args) {
         //declaring a KeyLock
         KeyLock keylock = new KeyLock("Red Lock", "Red Key");
-        //declaring a ComboLock
-        ComboLock combolock = new ComboLock("Blue Lock", 1357);
         //declaring a Table
         Table table = new Table("Cedar Table");
         //declaring a Screw
@@ -23,7 +21,7 @@ public class EscapeRoom {
         //declaring a Paper
         Paper paper = new Paper("Note", "The code is 1357");
         //declaring a HintHolder
-        HintHolder hintholder = new HintHolder("ComboSafe", combolock);
+        HintHolder hintholder = new HintHolder("ComboSafe", keylock);
 
         //declaring a key
         Item key = new Item(item_type.KEY, "Red Key");
@@ -35,7 +33,7 @@ public class EscapeRoom {
         //placing objects on table
         table.placeOnTop(screw);
         table.placeOnTop(keylock);
-        table.placeOnTop(combolock);
+        table.placeOnTop(paper);
 
         System.out.println(table.checkInteractable(0).getName());
         System.out.println(table.checkInteractable(1).getName());
@@ -47,9 +45,6 @@ public class EscapeRoom {
         //unlocking KeyLock
         if (keylock.keyUnlock(key)){
             System.out.println(keylock.getName() + " was unlocked by " + key.getName());
-        }
-        if (combolock.comboUnlock(1357)){
-            System.out.println(combolock.getName() + " unlocked with code 1357");
         }
         hintholder.setHint(paper);
         System.out.println(hintholder.getHint().getContents());
