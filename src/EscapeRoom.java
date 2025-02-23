@@ -1,12 +1,8 @@
 package src;
 
-import java.util.*;
-
 import src.interactables.*;
 import src.interactables.HintCarrier.h_type;
-import src.items.*;;
-
-
+import src.items.*;
 
 public class EscapeRoom {
     //Main function to show functionality of all classes
@@ -27,7 +23,7 @@ public class EscapeRoom {
         //declaring a key
         LockKey key = new LockKey("Red Key");
         //declaring a banana
-        Banana banana = new Banana();
+        //Banana banana = new Banana();
         //declaring a screwdriver
         Screwdriver screwdriver = new Screwdriver("CAT Screwdriver");
 
@@ -41,7 +37,7 @@ public class EscapeRoom {
         System.out.println(table.checkInteractable(2).getName());
 
         //creating dud key
-        LockKey dudkey = new LockKey("bad key");
+        //LockKey dudkey = new LockKey("bad key");
 
         //Opening hintholder before being unlocked
         if (hintholder.getHint() == null){
