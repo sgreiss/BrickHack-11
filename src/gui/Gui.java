@@ -504,7 +504,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 umbrella_holder.setLayoutX(0);
                 umbrella_holder.setLayoutY(0);
                 umbrella_holder.setOnMouseClicked(e -> {
-                    System.out.println("Umbrella clicked");
+                    model.player.addItem(Model.SCREWDRIVER);
                 });
                 center.getChildren().addAll(umbrella_holder, arrow_back);
                 break;
@@ -522,7 +522,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 banana_receipt.setLayoutX(50);
                 banana_receipt.setLayoutY(150);
                 banana_receipt.setOnMouseClicked(e -> {
-                    System.out.println("Banana Receipt clicked");
+                    model.player.writeInNotebook(Model.HINTRC1);
                 });
                 ImageView flower_receipt = new ImageView(src.gui.Images.FLOWER_RECEIPT);
                 flower_receipt.setFitWidth(300);
@@ -531,7 +531,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 flower_receipt.setLayoutX(300);
                 flower_receipt.setLayoutY(150);
                 flower_receipt.setOnMouseClicked(e -> {
-                    System.out.println("Flower Receipt clicked");
+                    model.player.writeInNotebook(Model.HINTRC2);
                 });
                 center.getChildren().addAll(receipt_table, banana_receipt, flower_receipt, arrow_back);
                 break;
@@ -543,7 +543,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 flower_pot.setLayoutX(0);
                 flower_pot.setLayoutY(0);
                 flower_pot.setOnMouseClicked(e -> {
-                    System.out.println("Flower Pot clicked");
+                    model.player.addItem(Model.REDKEY);
                 });
                 center.getChildren().addAll(flower_pot, arrow_back);
                 break;
@@ -648,6 +648,7 @@ public class Gui extends Application implements Observer<Model, String> {
         root.setCenter(center);
         root.setBottom(null);
     }
+
     private void controls_screen() {
         root.setStyle("-fx-background-color: linear-gradient(to bottom, #3a3a3a, #1e1e1e);");
 
@@ -689,11 +690,24 @@ public class Gui extends Application implements Observer<Model, String> {
         Pane oldScreen = (Pane) (root.getCenter());
         Pane inventoryScreen = new Pane();
 
-        ImageView inventory = new ImageView(src.gui.Images.INVENTORY);
+        ImageView inventory = new ImageView(Images.INVENTORY);
         inventory.setFitWidth(650);
         inventory.setFitHeight(650);
         inventory.setPreserveRatio(true);
         inventoryScreen.getChildren().add(inventory);
+
+        Label descriptionLabel = new Label("hello");
+        inventoryScreen.getChildren().add(descriptionLabel);
+        descriptionLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        descriptionLabel.setTextFill(Color.web("#f8f8f8"));
+        descriptionLabel.setWrapText(true);
+        descriptionLabel.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 2, 0, 3, 3);");
+        descriptionLabel.setMinWidth(300);
+        descriptionLabel.setMaxWidth(300);
+        descriptionLabel.setMinHeight(300);
+        descriptionLabel.setMaxHeight(300);
+        descriptionLabel.setLayoutX(340);
+        descriptionLabel.setLayoutY(150);
 
         ImageView notebook = new ImageView(Images.NOTEBOOK_ITEM);
         inventoryScreen.getChildren().add(notebook);
@@ -704,7 +718,8 @@ public class Gui extends Application implements Observer<Model, String> {
         notebook.setLayoutX(45);
         notebook.setLayoutY(145);
         notebook.setOnMouseClicked(e -> {
-            System.out.println("Notebook active");
+            System.out.println("Notebook clicked");
+            descriptionLabel.setText("Your notebook. You use this to remember important information.");
         });
 
         for (int j = 0; j < model.player.getInventory().length; j++) {
@@ -760,6 +775,7 @@ public class Gui extends Application implements Observer<Model, String> {
                     item.setLayoutY(y);
                     item.setOnMouseClicked(e -> {
                         System.out.println(String.format("%s clicked", name));
+                        descriptionLabel.setText(i.getDescription());
                     });
                 }
             }

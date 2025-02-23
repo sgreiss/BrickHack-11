@@ -42,8 +42,8 @@ public class Model {
     public static final LockKey PURPLEKEY = new LockKey("Purple Key");
     public static final LockKey GOLDKEY = new LockKey("Gold Key"); //FINAL GOAL
     //2 other items
-    public final Screwdriver SCREWDRIVER = new Screwdriver("Screwdriver");
-    public final Banana BANANA = new Banana();
+    public static final Screwdriver SCREWDRIVER = new Screwdriver("Screwdriver");
+    public static final Banana BANANA = new Banana();
 
     //9 HINTS TOTAL: Cabinet, Drawer, Briefcase, Red Book, Blue Book, Screwdriver, Painting, Receipt1, Receipt2
     public static final Hint HINTCAB = new Hint("Hint 0", "2 _ _ _");
