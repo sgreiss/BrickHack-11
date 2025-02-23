@@ -1,5 +1,8 @@
 package src.interactables;
 
+import java.util.ArrayList;
+
+import javafx.scene.image.Image;
 import src.items.Item;
 
 public class HintCarrier extends Interactable {

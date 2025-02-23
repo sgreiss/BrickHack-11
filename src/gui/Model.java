@@ -1,10 +1,12 @@
 package src.gui;
 import java.util.*;
 
+import javafx.scene.image.Image;
 import src.interactables.HintCarrier.h_type;
 import src.items.*;
 import src.Player;
 import src.interactables.*;
+
 
 public class Model {
 
@@ -71,8 +73,8 @@ public class Model {
     public static final HintCarrier FPAINTING = new HintCarrier(h_type.NOLOCK, "Herring Painting", null);
 
     //2 Tables
-    public static final Table TABLE = new Table("Table1");
-    public static final Table TABLE2 = new Table("Table2");
+    public static final Table RECEIPTTABLE = new Table("Receipt Table");
+    public static final Table BANANATABLE = new Table("Banana Table");
 
     //Current screen
     private static int currentscreen;
@@ -99,6 +101,7 @@ public class Model {
 
     public void init() {
         currentscreen = 0;
+        VENT.setImage(Arrays.asList(Images.VENT_FAR, Images.VENT_ZOOM, Images.VENT_KEY, Images.VENT_EMPTY));
         UMBRELLAHOLDER.setItem(SCREWDRIVER);
         FLOWERPOT.setItem(REDKEY);
         COATRACK.setItem(BLUEKEY);
@@ -107,20 +110,28 @@ public class Model {
         SAFE.setItem(GOLDKEY);
         
         BANANABOWL.setItem(BANANA);
+        BANANABOWL.setImage(Arrays.asList(Images.BANANA_TABLE_ZOOM, Images.EMPTY_TABLE_ZOOM));
         CABINET.setHint(HINTCAB);
         DRAWER.setHint(HINTDRA);
         BRIEFCASE.setHint(HINTBRI);
         REDBOOK.setHint(HINTRED);
+        REDBOOK.setImage(Arrays.asList(Images.RED_BOOK_CLOSED, Images.RED_BOOK_ZOOM, Images.RED_BOOK_ZOOM, Images.RED_BOOK_OPEN));
         BLUEBOOK.setHint(HINTBLU);
+        BLUEBOOK.setImage(Arrays.asList(Images.BLUE_BOOK_SIDE, Images.BLUE_BOOK_ZOOM));
         PAINTING.setHint(HINTPAI);
+        PAINTING.setImage(Arrays.asList(Images.PAINTING_NOTE, Images.PAINTING_NOTE_ZOOM));
         RECEIPT1.setHint(HINTRC1);
+
         RECEIPT2.setHint(HINTRC2);
         UMBRELLAHOLDER.setHint(HINTSCR);
         FPAINTING.setHint(new Hint("Fake Hint", "This painting seems completely normal"));
+        FPAINTING.setImage(Arrays.asList(Images.PAINTING));
         
-        TABLE.placeOnTop(RECEIPT1);
-        TABLE.placeOnTop(RECEIPT2);
-        TABLE2.placeOnTop(BANANABOWL);
+        RECEIPTTABLE.placeOnTop(RECEIPT1);
+        RECEIPTTABLE.placeOnTop(RECEIPT2);
+        RECEIPTTABLE.setImage(Arrays.asList(Images.RECEIPT_TABLE_SIDE, Images.RECEIPT_TABLE_TOP));
+        BANANATABLE.placeOnTop(BANANABOWL);
+        BANANATABLE.setImage(Arrays.asList(Images.BANANA_TABLE, Images.EMPTY_TABLE));
         
         ready();
     }
