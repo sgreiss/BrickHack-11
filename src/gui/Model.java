@@ -129,18 +129,9 @@ public class Model {
         return GOLDLOCK.isOpen();
     }
 
-    public void turn(String direction){
-        if (direction.equals("left")) {
-            currentscreen -= 1;
-            if (currentscreen < MIN_SCREEN_POS)
-                currentscreen = MAX_SCREEN_POS;
-        }
-        else if (direction.equals("right")) {
-            currentscreen += 1;
-            if (currentscreen == SCREENS)
-                currentscreen = MIN_SCREEN_POS;
-        }
-        notifyObservers("Turned " + direction);
+    public void turn(int screen){
+        currentscreen = screen;
+        notifyObservers(String.format("Turned to screen %d", currentscreen));
     }
 
 }
