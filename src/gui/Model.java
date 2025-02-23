@@ -215,13 +215,14 @@ public class Model {
         }
     }
     public void toggleNotebook(){
-        if (inventoryscreen){
-            insidenotebook = !insidenotebook;
-        }
+        inventoryscreen = false;
+        insidenotebook = !insidenotebook;
         if (insidenotebook){
             notifyObservers("Turned to screen notebook");
         } else {
+            inventoryscreen = true;
             notifyObservers("Turned to screen inventory");
+            
         }
     }
     public void pickup(Item i){

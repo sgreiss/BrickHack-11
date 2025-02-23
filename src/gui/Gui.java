@@ -129,10 +129,10 @@ public class Gui extends Application implements Observer<Model, String> {
         if(message.length() >= 16 && message.substring(0, 16).equals("Turned to screen")) {
             if (model.controls()) {
                 controls_screen();
-            } else if (model.notebook()) {
-                notebook_screen();
             } else if (model.inventory()) {
                 inventory_screen();
+            } else if (model.notebook()) {
+                    notebook_screen();
             } else {
                 switch (Integer.parseInt(String.valueOf(message.charAt(17)))) {
                     case 0:
