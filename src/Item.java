@@ -37,8 +37,4 @@ public class Item {
     public String getDescription() {
         return description;
     }
-
-    public String getMenu() {
-        return menu;
-    }
 }

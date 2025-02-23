@@ -3,21 +3,32 @@ package src.interactables;
 import src.Item;
 
 public class HintHolder extends Interactable {
+    public enum h_type{
+        LOCK, NOLOCK;
+    }
     private Paper hint;
     private Item item;
     private Unlockable condition;
-    public HintHolder(String name, Unlockable condition) {
+    private h_type type;
+    
+    public HintHolder(h_type type, String name, Unlockable condition) {
         super(name);
-        this.condition = condition;
+        this.type = type;
+        switch (type) {
+            case LOCK:
+                this.condition = condition;
+            case NOLOCK:
+                this.condition = null;
+        }
     }
     public Paper getHint() {
-        if (condition.isOpen()) {
+        if (condition.isOpen() || type == h_type.NOLOCK){
             return hint;
         }
         return null;
     }
     public Item getItem()  {
-        if (condition.isOpen()){
+        if (condition.isOpen() || type == h_type.NOLOCK) {
             return item;
         } 
         return null;

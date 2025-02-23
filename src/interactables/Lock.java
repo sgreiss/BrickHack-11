@@ -3,9 +3,9 @@ package src.interactables;
 import src.Item;
 import src.Item.item_type;
 
-public class KeyLock extends Unlockable {
+public class Lock extends Unlockable {
     private String key;
-    public KeyLock(String name, String key){
+    public Lock(String name, String key){
         super(u_type.KEYLOCK, name);
         this.key = key;
     }

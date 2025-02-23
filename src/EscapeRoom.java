@@ -13,7 +13,7 @@ public class EscapeRoom {
     //Main function to show functionality of all classes
     public static void main(String[] args) {
         //declaring a KeyLock
-        KeyLock keylock = new KeyLock("Red Lock", "Red Key");
+        Lock keylock = new Lock("Red Lock", "Red Key");
         //declaring a Table
         Table table = new Table("Cedar Table");
         //declaring a Screw
