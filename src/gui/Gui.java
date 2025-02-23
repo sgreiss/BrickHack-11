@@ -8,9 +8,11 @@ import javafx.stage.Stage;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -23,7 +25,11 @@ public class Gui extends Application implements Observer<Model, String> {
 
     private Label gameMessage;
     private BorderPane root = new BorderPane();
-    private StackPane center = new StackPane();
+    private Pane center = new Pane();
+
+    private ImageView arrow_left = new ImageView();
+    private ImageView arrow_right = new ImageView();
+    private ImageView arrow_down = new ImageView();
 
     @Override
     public void init() {
@@ -35,79 +41,187 @@ public class Gui extends Application implements Observer<Model, String> {
     @Override
     public void start(Stage stage) {
         stage.setTitle("Escape Room");
-        // root.setStyle("-fx-background-color: linear-gradient(to bottom, #3a3a3a, #1e1e1e);");
+        root.setStyle("-fx-background-color: linear-gradient(to bottom, #3a3a3a, #1e1e1e);");
 
-        // gameMessage = new Label(Model.STARTMSG);
-        // gameMessage.setFont(Font.font("Verdana", FontWeight.BOLD, 18));
-        // gameMessage.setTextFill(Color.web("#f8f8f8"));
-        // gameMessage.setWrapText(true);
-        // gameMessage.setMaxWidth(600);
-        // gameMessage.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 2, 0, 3, 3);");
+        gameMessage = new Label(Model.STARTMSG);
+        gameMessage.setFont(Font.font("Verdana", FontWeight.BOLD, 18));
+        gameMessage.setTextFill(Color.web("#f8f8f8"));
+        gameMessage.setWrapText(true);
+        gameMessage.setMaxWidth(600);
+        gameMessage.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 2, 0, 3, 3);");
 
-        // StackPane messagePadding = new StackPane(gameMessage);
-        // messagePadding.setPadding(new Insets(10, 20, 20, 20));
-        // root.setTop(messagePadding);
+        StackPane messagePadding = new StackPane(gameMessage);
+        messagePadding.setPadding(new Insets(10, 20, 20, 20));
+        root.setTop(messagePadding);
 
-        // Button readyButton = new Button("Ready");
-        // readyButton.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
-        // readyButton.setStyle("-fx-background-color: #666666; -fx-text-fill: #f8f8f8; -fx-padding: 12px 24px; -fx-border-radius: 8px; -fx-background-radius: 8px;");
+        Button readyButton = new Button("Ready");
+        readyButton.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
+        readyButton.setStyle("-fx-background-color: #666666; -fx-text-fill: #f8f8f8; -fx-padding: 12px 24px; -fx-border-radius: 8px; -fx-background-radius: 8px;");
         
-        // readyButton.setOnMouseEntered(e -> {
-        //     readyButton.setStyle("-fx-background-color: #888888; -fx-text-fill: #ffffff; -fx-padding: 12px 24px; -fx-border-radius: 8px; -fx-background-radius: 8px;");
-        //     ScaleTransition st = new ScaleTransition(Duration.millis(150), readyButton);
-        //     st.setToX(1.1);
-        //     st.setToY(1.1);
-        //     st.play();
-        // });
+        readyButton.setOnMouseEntered(e -> {
+            readyButton.setStyle("-fx-background-color: #888888; -fx-text-fill: #ffffff; -fx-padding: 12px 24px; -fx-border-radius: 8px; -fx-background-radius: 8px;");
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), readyButton);
+            st.setToX(1.1);
+            st.setToY(1.1);
+            st.play();
+        });
 
-        // readyButton.setOnMouseExited(e -> {
-        //     readyButton.setStyle("-fx-background-color: #666666; -fx-text-fill: #f8f8f8; -fx-padding: 12px 24px; -fx-border-radius: 8px; -fx-background-radius: 8px;");
-        //     ScaleTransition st = new ScaleTransition(Duration.millis(150), readyButton);
-        //     st.setToX(1.0);
-        //     st.setToY(1.0);
-        //     st.play();
-        // });
+        readyButton.setOnMouseExited(e -> {
+            readyButton.setStyle("-fx-background-color: #666666; -fx-text-fill: #f8f8f8; -fx-padding: 12px 24px; -fx-border-radius: 8px; -fx-background-radius: 8px;");
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), readyButton);
+            st.setToX(1.0);
+            st.setToY(1.0);
+            st.play();
+        });
         
-        // readyButton.setOnAction(e -> {
-        //     model.turn(0);
-        // });
+        readyButton.setOnAction(e -> {
+            model.turn(0);
+        });
 
-        // StackPane buttonPadding = new StackPane(readyButton);
-        // buttonPadding.setPadding(new Insets(20, 20, 200, 20));
+        StackPane buttonPadding = new StackPane(readyButton);
+        buttonPadding.setPadding(new Insets(20, 20, 200, 20));
 
-        // root.setBottom(buttonPadding);
+        root.setBottom(buttonPadding);
         
-        // center = new StackPane();
+        center = new StackPane();
 
-        // Label startLabel = new Label(Model.WELCOME);
-        // startLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        // startLabel.setTextFill(Color.web("#f8f8f8"));
-        // startLabel.setWrapText(true);
-        // startLabel.setMaxWidth(600);
-        // startLabel.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 2, 0, 3, 3);");
+        Label startLabel = new Label(Model.WELCOME);
+        startLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        startLabel.setTextFill(Color.web("#f8f8f8"));
+        startLabel.setWrapText(true);
+        startLabel.setMaxWidth(600);
+        startLabel.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 2, 0, 3, 3);");
 
-        // StackPane centerPane = new StackPane(startLabel);
-        // centerPane.setPadding(new Insets(0, 0, 0, 0));
+        StackPane centerPane = new StackPane(startLabel);
+        centerPane.setPadding(new Insets(0, 0, 0, 0));
 
-        // center.getChildren().add(centerPane);
-        // root.setCenter(center);
+        center.getChildren().add(centerPane);
+        root.setCenter(center);
 
-        Button test = new Button();
-        test.setGraphic(new ImageView(src.gui.Images.ARROW_DOWN_BRIGHT));
-
-        //stage.setScene(new Scene(root, 700, 700));
-        stage.setScene(new Scene(test, 500, 500));
+        stage.setScene(new Scene(root, 650, 700));
         stage.show();
     }
 
     @Override
     public void update(Model model, String message) {
         //TODO: add key bind commands
-        //TODO: add screen switching
+        System.out.println(message);
+
+        if(message.length() >=16 && message.substring(0, 16).equals("Turned to screen")) {
+            switch(Integer.parseInt(String.valueOf(message.charAt(17)))) {
+                case 0:
+                    screen0();
+            }
+        }
+    }
+
+    private void left_arrow() {
+        arrow_left.setImage(src.gui.Images.ARROW_LEFT);
+        arrow_left.setFitWidth(70);
+        arrow_left.setFitHeight(70);
+        arrow_left.setPreserveRatio(true);
+        arrow_left.setPickOnBounds(false);
+        arrow_left.setLayoutX(0);
+        arrow_left.setLayoutY(300);
+        arrow_left.setOnMouseEntered(e -> {
+            arrow_left.setImage(src.gui.Images.ARROW_LEFT_BRIGHT);
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), arrow_left);
+            st.setToX(1.1);
+            st.setToY(1.1);
+            st.play();
+        });
+
+        arrow_left.setOnMouseExited(e -> {
+            arrow_left.setImage(src.gui.Images.ARROW_LEFT);
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), arrow_left);
+            st.setToX(1.0);
+            st.setToY(1.0);
+            st.play();
+        });
+
+        arrow_left.setOnMouseClicked(e -> {
+            model.turn(-1);
+        });
+    }
+
+    private void right_arrow() {
+        arrow_right.setImage(src.gui.Images.ARROW_RIGHT);
+        arrow_right.setFitWidth(70);
+        arrow_right.setFitHeight(70);
+        arrow_right.setPreserveRatio(true);
+        arrow_right.setPickOnBounds(false);
+        arrow_right.setLayoutX(585);
+        arrow_right.setLayoutY(300);
+        arrow_right.setOnMouseEntered(e -> {
+            arrow_right.setImage(src.gui.Images.ARROW_RIGHT_BRIGHT);
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), arrow_right);
+            st.setToX(1.1);
+            st.setToY(1.1);
+            st.play();
+        });
+
+        arrow_right.setOnMouseExited(e -> {
+            arrow_right.setImage(src.gui.Images.ARROW_RIGHT);
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), arrow_right);
+            st.setToX(1.0);
+            st.setToY(1.0);
+            st.play();
+        });
+
+        arrow_right.setOnMouseClicked(e -> {
+            model.turn(1);
+        });
     }
 
     private void screen0() {
-        
+        left_arrow();
+        right_arrow();
+
+        root.setStyle("-fx-background-color: #666666;");
+        center = new Pane();
+
+        ImageView background = new ImageView(src.gui.Images.BACKGROUND);
+        background.setFitWidth(650);
+        background.setFitHeight(650);
+        background.setPreserveRatio(true);
+
+        ImageView hat_rack = new ImageView(src.gui.Images.HAT_RACK);
+        hat_rack.setFitWidth(400);
+        hat_rack.setFitHeight(400);
+        hat_rack.setPreserveRatio(true);
+        hat_rack.setPickOnBounds(false);
+        hat_rack.setLayoutX(-60);
+        hat_rack.setLayoutY(245);
+        hat_rack.setOnMouseClicked(e -> {
+            System.out.println("Hanger clicked");
+        });
+
+        ImageView door = new ImageView(src.gui.Images.DOOR_CLOSED);
+        door.setFitWidth(500);
+        door.setFitHeight(500);
+        door.setPreserveRatio(true);
+        door.setPickOnBounds(false);
+        door.setLayoutX(75);
+        door.setLayoutY(105);
+        door.setOnMouseClicked(e -> {
+            System.out.println("Door clicked");
+        });
+
+        ImageView umbrella_holder = new ImageView(src.gui.Images.UMBRELLA_SIDE);
+        umbrella_holder.setFitWidth(250);
+        umbrella_holder.setFitHeight(250);
+        umbrella_holder.setPreserveRatio(true);
+        umbrella_holder.setPickOnBounds(false);
+        umbrella_holder.setLayoutX(450);
+        umbrella_holder.setLayoutY(380);
+        umbrella_holder.setOnMouseClicked(e -> {
+            System.out.println("Umbrella clicked");
+        });
+
+        center.getChildren().addAll(background, hat_rack, door, umbrella_holder, arrow_left, arrow_right);
+
+        root.setCenter(center);
+        root.setBottom(null);
     }
 
     // @Override
