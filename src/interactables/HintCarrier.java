@@ -29,6 +29,7 @@ public class HintCarrier extends Interactable {
     }
     public Item getItem()  {
         if (condition.isOpen() || type == h_type.NOLOCK) {
+            use();
             return item;
         } 
         return null;

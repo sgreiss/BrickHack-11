@@ -68,6 +68,7 @@ public class Model {
     private final HintCarrier COATRACK = new HintCarrier(h_type.NOLOCK, "Coat Rack", null);
     private final HintCarrier UMBRELLAHOLDER = new HintCarrier(h_type.NOLOCK, "Umbrella Holder", null);
     private final HintCarrier PAINTING = new HintCarrier(h_type.NOLOCK, "Painting", null);
+    private final HintCarrier FPAINTING = new HintCarrier(h_type.NOLOCK, "Herring Painting", null);
 
     //2 Tables
     private final Table TABLE = new Table("Table1");
@@ -118,6 +119,7 @@ public class Model {
         RECEIPT1.setHint(HINTRC1);
         RECEIPT2.setHint(HINTRC2);
         UMBRELLAHOLDER.setHint(HINTSCR);
+        FPAINTING.setHint(new Hint("Fake Hint", "This painting seems completely normal"));
         
         TABLE.placeOnTop(RECEIPT1);
         TABLE.placeOnTop(RECEIPT2);
