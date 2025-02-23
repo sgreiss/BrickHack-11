@@ -826,18 +826,6 @@ public class Gui extends Application implements Observer<Model, String> {
             notebookScreen.getChildren().add(hintLabel);
         }
 
-        ImageView close = new ImageView(Images.ARROW_DOWN);
-        notebookScreen.getChildren().add(close);
-        close.setFitWidth(400);
-        close.setFitHeight(150);
-        close.setPreserveRatio(true);
-        close.setPickOnBounds(false);
-        close.setLayoutX(400);
-        close.setLayoutY(500);
-        close.setOnMouseClicked(e -> {
-            System.out.println("Close clicked");
-        });
-
         StackPane center = new StackPane(oldScreen, notebookScreen);
 
         root.setCenter(center);
