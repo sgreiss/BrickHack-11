@@ -8,6 +8,7 @@ public class Hint extends Interactable {
         this.contents = contents;
     }
     public String getContents() {
+        use();
         return contents;
     }
 }
