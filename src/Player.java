@@ -17,6 +17,10 @@ public class Player {
         known_hints = new boolean[]{false, false, false, false, false, false, false, false, false};
     }
 
+    /*
+     * adds an item to the player's inventory
+     * @param i the item to be added to the inventory
+     */
     public void addItem(Item i) {
         for (int j = 0; j < inventory.length; j++) {
             if (inventory[j] == null) {
@@ -25,9 +29,17 @@ public class Player {
             }
         }
     }
+    /*
+     * equips an item from the player's inventory
+     * @param index the index of the item to be equipped
+     */
     public void equipItem(int index) {
         equipped = inventory[index];
     }
+    /*
+     * Adds a hint to the player's notebook and updates the known_hints array
+     * @param hint the hint to be added to the notebook
+     */
     public void writeInNotebook(Hint hint) {
         String str = hint.getContents();
         notebook.add(str);

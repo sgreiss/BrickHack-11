@@ -11,7 +11,13 @@ public class Item extends Interactable {
         super(name);
         this.description = description;
     }
-
+    /*
+     * sets the name of the item (only relevant to banana since it has two states)
+     * @param name: the name to be set
+     */
+    public void setDesc(String desc){
+        description = desc;
+    }
     public String getName() {
         return name;
     }

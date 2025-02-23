@@ -9,6 +9,10 @@ public class Unlockable extends Interactable {
         super(name);
         this.type = type;
     }
+    /*
+     * attempts to unlock the lock. Assume appropriate key, combo, or screwdriver was used. Fails if the lock is already unlocked
+     * @return true if the lock is successfully unlocked, false otherwise
+     */
     public boolean unlock(){
         if (isUsable()){
             return use();
