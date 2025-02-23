@@ -23,55 +23,55 @@ public class Model {
     Player player = new Player();
 
     //5 locks
-    private final Lock REDLOCK = new Lock("Red Lock","Red Key");
-    private final Lock BLUELOCK = new Lock("Blue Lock","Blue Key");
-    private final Lock GREENLOCK = new Lock("Green Lock","Green Key");
-    private final Lock PURPLELOCK = new Lock("Purple Lock","Purple Key");
-    private final Lock GOLDLOCK = new Lock("Gold Lock","Gold Key");
-    private final ComboLock COMBOLOCK = new ComboLock("Combo Lock", 2620);
+    public final Lock REDLOCK = new Lock("Red Lock","Red Key");
+    public final Lock BLUELOCK = new Lock("Blue Lock","Blue Key");
+    public final Lock GREENLOCK = new Lock("Green Lock","Green Key");
+    public final Lock PURPLELOCK = new Lock("Purple Lock","Purple Key");
+    public final Lock GOLDLOCK = new Lock("Gold Lock","Gold Key");
+    public final ComboLock COMBOLOCK = new ComboLock("Combo Lock", 2620);
     //one screw
     private final Screw VENTSCREW = new Screw("Vent Screw");
     //5 keys
-    private final LockKey REDKEY = new LockKey("Red Key");
-    private final LockKey BLUEKEY = new LockKey("Blue Key");
-    private final LockKey GREENKEY = new LockKey("Green Key");
-    private final LockKey PURPLEKEY = new LockKey("Purple Key");
-    private final LockKey GOLDKEY = new LockKey("Gold Key"); //FINAL GOAL
+    public final LockKey REDKEY = new LockKey("Red Key");
+    public final LockKey BLUEKEY = new LockKey("Blue Key");
+    public final LockKey GREENKEY = new LockKey("Green Key");
+    public final LockKey PURPLEKEY = new LockKey("Purple Key");
+    public final LockKey GOLDKEY = new LockKey("Gold Key"); //FINAL GOAL
     //2 other items
-    private final Screwdriver SCREWDRIVER = new Screwdriver("Screwdriver");
-    private final Banana BANANA = new Banana();
+    public final Screwdriver SCREWDRIVER = new Screwdriver("Screwdriver");
+    public final Banana BANANA = new Banana();
 
     //9 HINTS TOTAL: Cabinet, Drawer, Briefcase, Red Book, Blue Book, Screwdriver, Painting, Receipt1, Receipt2
-    private final Hint HINTCAB = new Hint("Hint 0", "2 _ _ _");
-    private final Hint HINTDRA = new Hint("Hint 1", "_ 6 _ _");
-    private final Hint HINTBRI = new Hint("Hint 2", "_ _ _ 0");
-    private final Hint HINTRED = new Hint("Hint 3", "_ _ 2 _");
-    private final Hint HINTBLU = new Hint("Hint 4", "My head's getting cold...");
-    private final Hint HINTSCR = new Hint("Hint 5", "Could this unscrew something?");
-    private final Hint HINTPAI = new Hint("Hint 6", "It's really pouring outside...");
-    private final Hint HINTRC1 = new Hint("Hint 7", "He has a bowl for just a single banana?");
-    private final Hint HINTRC2 = new Hint("Hint 8", "A receipt for only a single flower?");    
+    public final Hint HINTCAB = new Hint("Hint 0", "2 _ _ _");
+    public final Hint HINTDRA = new Hint("Hint 1", "_ 6 _ _");
+    public final Hint HINTBRI = new Hint("Hint 2", "_ _ _ 0");
+    public final Hint HINTRED = new Hint("Hint 3", "_ _ 2 _");
+    public final Hint HINTBLU = new Hint("Hint 4", "My head's getting cold...");
+    public final Hint HINTSCR = new Hint("Hint 5", "Could this unscrew something?");
+    public final Hint HINTPAI = new Hint("Hint 6", "It's really pouring outside...");
+    public final Hint HINTRC1 = new Hint("Hint 7", "He has a bowl for just a single banana?");
+    public final Hint HINTRC2 = new Hint("Hint 8", "A receipt for only a single flower?");    
 
     //13 HINTHOLDERS TOTAL
-    private final HintCarrier VENT = new HintCarrier(h_type.LOCK, "Vent", VENTSCREW);
-    private final HintCarrier REDBOOK = new HintCarrier(h_type.LOCK, "Red Book", REDLOCK);
-    private final HintCarrier CABINET = new HintCarrier(h_type.LOCK, "Dresser Cabinet", GREENLOCK);
-    private final HintCarrier DRAWER = new HintCarrier(h_type.LOCK, "Dresser Drawer", BLUELOCK);
-    private final HintCarrier BRIEFCASE = new HintCarrier(h_type.LOCK, "Briefcase", PURPLELOCK);
-    private final HintCarrier SAFE = new HintCarrier(h_type.LOCK, "Safe", COMBOLOCK);
-    private final HintCarrier RECEIPT1 = new HintCarrier(h_type.NOLOCK, "Grocery Receipt", null);
-    private final HintCarrier RECEIPT2 = new HintCarrier(h_type.NOLOCK, "Florist Receipt", null);
-    private final HintCarrier BLUEBOOK = new HintCarrier(h_type.NOLOCK, "Blue Book", null);
-    private final HintCarrier FLOWERPOT = new HintCarrier(h_type.NOLOCK, "Flower Pot", null);
-    private final HintCarrier BANANABOWL = new HintCarrier(h_type.NOLOCK, "Banana Bowl", null);
-    private final HintCarrier COATRACK = new HintCarrier(h_type.NOLOCK, "Coat Rack", null);
-    private final HintCarrier UMBRELLAHOLDER = new HintCarrier(h_type.NOLOCK, "Umbrella Holder", null);
-    private final HintCarrier PAINTING = new HintCarrier(h_type.NOLOCK, "Painting", null);
-    private final HintCarrier FPAINTING = new HintCarrier(h_type.NOLOCK, "Herring Painting", null);
+    public final HintCarrier VENT = new HintCarrier(h_type.LOCK, "Vent", VENTSCREW);
+    public final HintCarrier REDBOOK = new HintCarrier(h_type.LOCK, "Red Book", REDLOCK);
+    public final HintCarrier CABINET = new HintCarrier(h_type.LOCK, "Dresser Cabinet", GREENLOCK);
+    public final HintCarrier DRAWER = new HintCarrier(h_type.LOCK, "Dresser Drawer", BLUELOCK);
+    public final HintCarrier BRIEFCASE = new HintCarrier(h_type.LOCK, "Briefcase", PURPLELOCK);
+    public final HintCarrier SAFE = new HintCarrier(h_type.LOCK, "Safe", COMBOLOCK);
+    public final HintCarrier RECEIPT1 = new HintCarrier(h_type.NOLOCK, "Grocery Receipt", null);
+    public final HintCarrier RECEIPT2 = new HintCarrier(h_type.NOLOCK, "Florist Receipt", null);
+    public final HintCarrier BLUEBOOK = new HintCarrier(h_type.NOLOCK, "Blue Book", null);
+    public final HintCarrier FLOWERPOT = new HintCarrier(h_type.NOLOCK, "Flower Pot", null);
+    public final HintCarrier BANANABOWL = new HintCarrier(h_type.NOLOCK, "Banana Bowl", null);
+    public final HintCarrier COATRACK = new HintCarrier(h_type.NOLOCK, "Coat Rack", null);
+    public final HintCarrier UMBRELLAHOLDER = new HintCarrier(h_type.NOLOCK, "Umbrella Holder", null);
+    public final HintCarrier PAINTING = new HintCarrier(h_type.NOLOCK, "Painting", null);
+    public final HintCarrier FPAINTING = new HintCarrier(h_type.NOLOCK, "Herring Painting", null);
 
     //2 Tables
-    private final Table TABLE = new Table("Table1");
-    private final Table TABLE2 = new Table("Table2");
+    public final Table TABLE = new Table("Table1");
+    public final Table TABLE2 = new Table("Table2");
 
     //Current screen
     private static int currentscreen;
@@ -135,7 +135,7 @@ public class Model {
     }
     public void advance(Interactable i){
         focused = i;
-        notifyObservers(String.format("Advanced to ", focused.getName()));
+        notifyObservers(String.format("Advanced to %s", focused.getName()));
     }
     public void retreat(){
         focused = null;
@@ -147,9 +147,11 @@ public class Model {
             return false;
         }
         if (i instanceof Screw){
+            notifyObservers("Opened " + i.getName());
             return ((Screw)i).unscrew(player.getEquipped());
         }
         else if (i instanceof Lock){
+            notifyObservers("Unlocked " + i.getName());
             return ((Lock)i).keyUnlock(player.getEquipped());
         }
         else{
@@ -157,6 +159,9 @@ public class Model {
             return false;
         }
 
+    }
+    public int getScreen(){
+        return currentscreen;
     }
 
 }
