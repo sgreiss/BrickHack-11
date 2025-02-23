@@ -1,18 +1,12 @@
 package src.gui;
-
-import java.net.HttpURLConnection;
-import java.security.Key;
 import java.util.*;
 
 import src.interactables.HintCarrier.h_type;
 import src.items.*;
+import src.Player;
 import src.interactables.*;
 
 public class Model {
-    //Game states
-    private enum game_state {
-        START, PLAY, END;
-    }
 
     //Game Messages
     public static final String STARTMSG = "Welcome to the Escape Room! You are trapped in a room and must find a way out. Use the items in the room to solve the puzzles and escape. Type 'help' for a list of commands.";
@@ -22,7 +16,9 @@ public class Model {
     public static final String UNLOCKFAIL = "Failed to unlock this item.";
 
     
-    
+    //create player
+    Player player = new Player();
+
     //5 locks
     private final Lock REDLOCK = new Lock("Red Lock","Red Key");
     private final Lock BLUELOCK = new Lock("Blue Lock","Blue Key");
@@ -75,8 +71,6 @@ public class Model {
 
     //Screen dimensions
     public static final int DIM = -1;
-    private String[][] screen;
-    private int screenNum;
 
 
     //Observers
@@ -96,7 +90,6 @@ public class Model {
     }
 
     public void init() {
-        screen = new String[DIM][DIM];
         UMBRELLAHOLDER.setItem(SCREWDRIVER);
         FLOWERPOT.setItem(REDKEY);
         COATRACK.setItem(BLUEKEY);
