@@ -48,7 +48,7 @@ public class Gui extends Application implements Observer<Model, String> {
         gameMessage.setTextFill(Color.web("#f8f8f8"));
         gameMessage.setWrapText(true);
         gameMessage.setMaxWidth(600);
-        gameMessage.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 2, 0, 3, 3);");
+        gameMessage.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 2, 0, 3, 3);");
 
         StackPane messagePadding = new StackPane(gameMessage);
         messagePadding.setPadding(new Insets(10, 20, 20, 20));
@@ -111,6 +111,12 @@ public class Gui extends Application implements Observer<Model, String> {
             switch(Integer.parseInt(String.valueOf(message.charAt(17)))) {
                 case 0:
                     screen0();
+                    break;
+                case 1:
+                    screen1();
+                    break;
+                case 2:
+                    screen2();
             }
         }
     }
@@ -224,6 +230,116 @@ public class Gui extends Application implements Observer<Model, String> {
         root.setBottom(null);
     }
 
+    private void screen1() {
+        left_arrow();
+        right_arrow();
+
+        root.setStyle("-fx-background-color: #666666;");
+        center = new Pane();
+
+        ImageView background = new ImageView(src.gui.Images.BACKGROUND);
+        background.setFitWidth(650);
+        background.setFitHeight(650);
+        background.setPreserveRatio(true);
+
+        ImageView window = new ImageView(src.gui.Images.WINDOW);
+        window.setFitWidth(470);
+        window.setFitHeight(470);
+        window.setPreserveRatio(true);
+        window.setPickOnBounds(false);
+        window.setLayoutX(90);
+        window.setLayoutY(-10);
+
+        ImageView flowerpot = new ImageView(src.gui.Images.FLOWERPOT);
+        flowerpot.setFitWidth(130);
+        flowerpot.setFitHeight(130);
+        flowerpot.setPreserveRatio(true);
+        flowerpot.setPickOnBounds(false);
+        flowerpot.setLayoutX(155);
+        flowerpot.setLayoutY(230);
+        flowerpot.setOnMouseClicked(e -> {
+            System.out.println("Flowerpot clicked");
+        });
+
+        ImageView receipt_table = new ImageView(src.gui.Images.RECEIPT_TABLE_SIDE);
+        receipt_table.setFitWidth(400);
+        receipt_table.setFitHeight(400);
+        receipt_table.setPreserveRatio(true);
+        receipt_table.setPickOnBounds(false);
+        receipt_table.setLayoutX(-30);
+        receipt_table.setLayoutY(245);
+        receipt_table.setOnMouseClicked(e -> {
+            System.out.println("Receipt Table clicked");
+        });
+
+        ImageView briefcase = new ImageView(src.gui.Images.BRIEFCASE_CLOSED);
+        briefcase.setFitWidth(300);
+        briefcase.setFitHeight(300);
+        briefcase.setPreserveRatio(true);
+        briefcase.setPickOnBounds(false);
+        briefcase.setLayoutX(235);
+        briefcase.setLayoutY(340);
+        briefcase.setOnMouseClicked(e -> {
+            System.out.println("Briefcase clicked");
+        });
+
+        ImageView vent = new ImageView(src.gui.Images.VENT_FAR);
+        vent.setFitWidth(100);
+        vent.setFitHeight(100);
+        vent.setPreserveRatio(true);
+        vent.setPickOnBounds(false);
+        vent.setLayoutX(460);
+        vent.setLayoutY(470);
+        vent.setOnMouseClicked(e -> {
+            System.out.println("Vent clicked");
+        });
+
+        center.getChildren().addAll(background, receipt_table, window, flowerpot, briefcase, vent, arrow_left, arrow_right);
+
+        root.setCenter(center);
+        root.setBottom(null);
+    }
+    
+    private void screen2() {
+        left_arrow();
+        right_arrow();
+
+        root.setStyle("-fx-background-color: #666666;");
+        center = new Pane();
+
+        ImageView background = new ImageView(src.gui.Images.BACKGROUND);
+        background.setFitWidth(650);
+        background.setFitHeight(650);
+        background.setPreserveRatio(true);
+
+        ImageView dresser = new ImageView(src.gui.Images.DRESSER_CLOSED);
+        dresser.setFitWidth(400);
+        dresser.setFitHeight(400);
+        dresser.setPreserveRatio(true);
+        dresser.setPickOnBounds(false);
+        dresser.setLayoutX(-30);
+        dresser.setLayoutY(230);
+        dresser.setOnMouseClicked(e -> {
+            System.out.println("Dresser clicked");
+        });
+
+        ImageView banana_table = new ImageView(src.gui.Images.BANANA_TABLE);
+        banana_table.setFitWidth(400);
+        banana_table.setFitHeight(400);
+        banana_table.setPreserveRatio(true);
+        banana_table.setPickOnBounds(false);
+        banana_table.setLayoutX(250);
+        banana_table.setLayoutY(245);
+        banana_table.setOnMouseClicked(e -> {
+            System.out.println("Banana Table clicked");
+        });
+
+        center.getChildren().addAll(background, dresser, banana_table, arrow_left, arrow_right);
+
+        root.setCenter(center);
+        root.setBottom(null);
+    }
+    
     // @Override
     // public void stop() {
     //     model.exit();
