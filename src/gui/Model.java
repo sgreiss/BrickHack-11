@@ -43,6 +43,8 @@ public class Model {
     private final Item SCREWDRIVER = new Item(item_type.SCREWDRIVER, "Screwdriver");
     private final Item BANANA = new Item(item_type.BANANA, "Banana");
 
+    //8 HINTS TOTAL
+
     private final HintHolder VENT = new HintHolder(h_type.LOCK, "Vent", VENTSCREW);
     private final HintHolder DOOR = new HintHolder(h_type.LOCK, "Door", GOLDLOCK);
     private final HintHolder REDBOOK = new HintHolder(h_type.LOCK, "Red Book", REDLOCK);
