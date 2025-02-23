@@ -2,7 +2,7 @@ package src.interactables;
 
 import src.items.Item;
 
-public class HintHolder extends Interactable {
+public class HintCarrier extends Interactable {
     public enum h_type{
         LOCK, NOLOCK;
     }
@@ -11,7 +11,7 @@ public class HintHolder extends Interactable {
     private Unlockable condition;
     private h_type type;
     
-    public HintHolder(h_type type, String name, Unlockable condition) {
+    public HintCarrier(h_type type, String name, Unlockable condition) {
         super(name);
         this.type = type;
         switch (type) {

@@ -3,7 +3,7 @@ package src;
 import java.util.*;
 
 import src.interactables.*;
-import src.interactables.HintHolder.h_type;
+import src.interactables.HintCarrier.h_type;
 import src.items.*;;
 
 
@@ -20,9 +20,9 @@ public class EscapeRoom {
         //declaring a Hint
         Hint paper = new Hint("Note", "The code is 1357");
         //declaring a HintHolder
-        HintHolder hintholder = new HintHolder(h_type.LOCK, "ComboSafe", keylock);
+        HintCarrier hintholder = new HintCarrier(h_type.LOCK, "ComboSafe", keylock);
         //declaring another HintHolder
-        HintHolder hintholder2 = new HintHolder(h_type.LOCK, "Vent", screw);
+        HintCarrier hintholder2 = new HintCarrier(h_type.LOCK, "Vent", screw);
 
         //declaring a key
         LockKey key = new LockKey("Red Key");

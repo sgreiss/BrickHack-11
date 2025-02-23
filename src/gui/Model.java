@@ -4,7 +4,7 @@ import java.net.HttpURLConnection;
 import java.security.Key;
 import java.util.*;
 
-import src.interactables.HintHolder.h_type;
+import src.interactables.HintCarrier.h_type;
 import src.items.*;
 import src.interactables.*;
 
@@ -54,20 +54,20 @@ public class Model {
     private final Hint HINTRC2 = new Hint("Hint 9", "A receipt for only a single flower?");    
 
     //13 HINTHOLDERS TOTAL
-    private final HintHolder VENT = new HintHolder(h_type.LOCK, "Vent", VENTSCREW);
-    private final HintHolder REDBOOK = new HintHolder(h_type.LOCK, "Red Book", REDLOCK);
-    private final HintHolder CABINET = new HintHolder(h_type.LOCK, "Dresser Cabinet", GREENLOCK);
-    private final HintHolder DRAWER = new HintHolder(h_type.LOCK, "Dresser Drawer", BLUELOCK);
-    private final HintHolder BRIEFCASE = new HintHolder(h_type.LOCK, "Briefcase", PURPLELOCK);
-    private final HintHolder SAFE = new HintHolder(h_type.LOCK, "Safe", COMBOLOCK);
-    private final HintHolder RECEIPT1 = new HintHolder(h_type.NOLOCK, "Grocery Receipt", null);
-    private final HintHolder RECEIPT2 = new HintHolder(h_type.NOLOCK, "Florist Receipt", null);
-    private final HintHolder BLUEBOOK = new HintHolder(h_type.NOLOCK, "Blue Book", null);
-    private final HintHolder FLOWERPOT = new HintHolder(h_type.NOLOCK, "Flower Pot", null);
-    private final HintHolder BANANABOWL = new HintHolder(h_type.NOLOCK, "Banana Bowl", null);
-    private final HintHolder COATRACK = new HintHolder(h_type.NOLOCK, "Coat Rack", null);
-    private final HintHolder UMBRELLAHOLDER = new HintHolder(h_type.NOLOCK, "Umbrella Holder", null);
-    private final HintHolder PAINTING = new HintHolder(h_type.NOLOCK, "Painting", null);
+    private final HintCarrier VENT = new HintCarrier(h_type.LOCK, "Vent", VENTSCREW);
+    private final HintCarrier REDBOOK = new HintCarrier(h_type.LOCK, "Red Book", REDLOCK);
+    private final HintCarrier CABINET = new HintCarrier(h_type.LOCK, "Dresser Cabinet", GREENLOCK);
+    private final HintCarrier DRAWER = new HintCarrier(h_type.LOCK, "Dresser Drawer", BLUELOCK);
+    private final HintCarrier BRIEFCASE = new HintCarrier(h_type.LOCK, "Briefcase", PURPLELOCK);
+    private final HintCarrier SAFE = new HintCarrier(h_type.LOCK, "Safe", COMBOLOCK);
+    private final HintCarrier RECEIPT1 = new HintCarrier(h_type.NOLOCK, "Grocery Receipt", null);
+    private final HintCarrier RECEIPT2 = new HintCarrier(h_type.NOLOCK, "Florist Receipt", null);
+    private final HintCarrier BLUEBOOK = new HintCarrier(h_type.NOLOCK, "Blue Book", null);
+    private final HintCarrier FLOWERPOT = new HintCarrier(h_type.NOLOCK, "Flower Pot", null);
+    private final HintCarrier BANANABOWL = new HintCarrier(h_type.NOLOCK, "Banana Bowl", null);
+    private final HintCarrier COATRACK = new HintCarrier(h_type.NOLOCK, "Coat Rack", null);
+    private final HintCarrier UMBRELLAHOLDER = new HintCarrier(h_type.NOLOCK, "Umbrella Holder", null);
+    private final HintCarrier PAINTING = new HintCarrier(h_type.NOLOCK, "Painting", null);
 
     //2 Tables
     private final Table TABLE = new Table("Table1");
