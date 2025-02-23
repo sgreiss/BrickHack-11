@@ -20,6 +20,10 @@ public class EscapeRoom {
         Table table = new Table("Cedar Table");
         //declaring a Screw
         Screw screw = new Screw("Plus Shape Screw");
+        //declaring a Paper
+        Paper paper = new Paper("Note", "The code is 1357");
+        //declaring a HintHolder
+        HintHolder hintholder = new HintHolder("ComboSafe", combolock);
 
         //declaring a key
         Item key = new Item(item_type.KEY, "Red Key");
@@ -47,6 +51,9 @@ public class EscapeRoom {
         if (combolock.comboUnlock(1357)){
             System.out.println(combolock.getName() + " unlocked with code 1357");
         }
+        hintholder.setHint(paper);
+        System.out.println(hintholder.getHint().getContents());
+
         if (keylock.isOpen()){
             System.out.println("Lock already Unlocked");
         }

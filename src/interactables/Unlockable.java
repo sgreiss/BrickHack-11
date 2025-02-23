@@ -1,6 +1,6 @@
 package src.interactables;
 
-public abstract class Unlockable extends Interactable {
+public class Unlockable extends Interactable {
     public enum u_type{
         KEYLOCK, COMBO, SCREW;
     }
