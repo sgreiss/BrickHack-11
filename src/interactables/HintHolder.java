@@ -6,7 +6,7 @@ public class HintHolder extends Interactable {
     public enum h_type{
         LOCK, NOLOCK;
     }
-    private Paper hint;
+    private Hint hint;
     private Item item;
     private Unlockable condition;
     private h_type type;
@@ -21,7 +21,7 @@ public class HintHolder extends Interactable {
                 this.condition = null;
         }
     }
-    public Paper getHint() {
+    public Hint getHint() {
         if (condition.isOpen() || type == h_type.NOLOCK){
             return hint;
         }
@@ -33,7 +33,7 @@ public class HintHolder extends Interactable {
         } 
         return null;
     }
-    public void setHint(Paper hint) {
+    public void setHint(Hint hint) {
         this.hint = hint;
     }
     public void setItem(Item i){

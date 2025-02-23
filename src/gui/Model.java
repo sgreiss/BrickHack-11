@@ -9,6 +9,7 @@ import src.interactables.ComboLock;
 import src.interactables.HintHolder;
 import src.interactables.HintHolder.h_type;
 import src.interactables.Lock;
+import src.interactables.Hint;
 import src.interactables.Screw;
 
 public class Model {
@@ -43,8 +44,19 @@ public class Model {
     private final Item SCREWDRIVER = new Item(item_type.SCREWDRIVER, "Screwdriver");
     private final Item BANANA = new Item(item_type.BANANA, "Banana");
 
-    //8 HINTS TOTAL
-
+    //9 HINTS
+    private final Hint HINT1 = new Hint("Hint 1", "The vent is locked. I need a screwdriver to open it.");
+    private final Hint HINT2 = new Hint("Hint 2", "The door is locked. I need a key to open it.");
+    private final Hint HINT3 = new Hint("Hint 3", "The red book is locked. I need a red key to open it.");
+    private final Hint HINT4 = new Hint("Hint 4", "The dresser cabinet is locked. I need a green key to open it.");
+    private final Hint HINT5 = new Hint("Hint 5", "The dresser drawer is locked. I need a blue key to open it.");
+    private final Hint HINT6 = new Hint("Hint 6", "The briefcase is locked. I need a purple key to open it.");
+    private final Hint HINT7 = new Hint("Hint 7", "The safe is locked. I need a gold key to open it.");
+    private final Hint HINT8 = new Hint("Hint 8", "The flower pot has a red key in it.");
+    private final Hint HINT9 = new Hint("Hint 9", "The banana bowl has a banana in it.");
+    private final Hint HINT10 = new Hint("Hint 10", "The coat rack has a blue key on it.");
+    
+    //13 HINTHOLDERS TOTAL
     private final HintHolder VENT = new HintHolder(h_type.LOCK, "Vent", VENTSCREW);
     private final HintHolder DOOR = new HintHolder(h_type.LOCK, "Door", GOLDLOCK);
     private final HintHolder REDBOOK = new HintHolder(h_type.LOCK, "Red Book", REDLOCK);
@@ -58,6 +70,7 @@ public class Model {
     private final HintHolder UMBRELLAHOLDER = new HintHolder(h_type.NOLOCK, "Umbrella Holder", null);
     private final HintHolder BOOKSHELF = new HintHolder(h_type.NOLOCK, "Bookshelf", null);
     private final HintHolder PAINTING = new HintHolder(h_type.NOLOCK, "Painting", null);
+
     
 
     //1 door, 1 coatrack, 1 vent, 1 flowerpot, 1 bananabowl, 1 safe, 1 table, 1 umbrella holder, 1 dresser, 1 bookshelf, 1 briefcase, 2 paintings, 1 screwdriver.

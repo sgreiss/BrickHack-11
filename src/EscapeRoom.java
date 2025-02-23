@@ -4,6 +4,7 @@ import java.util.*;
 
 import src.Item.item_type;
 import src.interactables.*;
+import src.interactables.HintHolder.h_type;
 
 
 public class EscapeRoom {
@@ -19,9 +20,9 @@ public class EscapeRoom {
         //declaring a Screw
         Screw screw = new Screw("Plus Shape Screw");
         //declaring a Paper
-        Paper paper = new Paper("Note", "The code is 1357");
+        Hint paper = new Hint("Note", "The code is 1357");
         //declaring a HintHolder
-        HintHolder hintholder = new HintHolder("ComboSafe", keylock);
+        HintHolder hintholder = new HintHolder(h_type.LOCK, "ComboSafe", keylock);
 
         //declaring a key
         Item key = new Item(item_type.KEY, "Red Key");
