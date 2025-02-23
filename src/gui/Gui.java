@@ -501,7 +501,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 umbrella_holder.setLayoutX(0);
                 umbrella_holder.setLayoutY(0);
                 umbrella_holder.setOnMouseClicked(e -> {
-                    System.out.println("Umbrella clicked");
+                    model.player.addItem(Model.SCREWDRIVER);
                 });
                 center.getChildren().addAll(umbrella_holder, arrow_back);
                 break;
@@ -519,7 +519,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 banana_receipt.setLayoutX(50);
                 banana_receipt.setLayoutY(150);
                 banana_receipt.setOnMouseClicked(e -> {
-                    System.out.println("Banana Receipt clicked");
+                    model.player.writeInNotebook(Model.HINTRC1);
                 });
                 ImageView flower_receipt = new ImageView(src.gui.Images.FLOWER_RECEIPT);
                 flower_receipt.setFitWidth(300);
@@ -528,7 +528,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 flower_receipt.setLayoutX(300);
                 flower_receipt.setLayoutY(150);
                 flower_receipt.setOnMouseClicked(e -> {
-                    System.out.println("Flower Receipt clicked");
+                    model.player.writeInNotebook(Model.HINTRC2);
                 });
                 center.getChildren().addAll(receipt_table, banana_receipt, flower_receipt, arrow_back);
                 break;
@@ -540,7 +540,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 flower_pot.setLayoutX(0);
                 flower_pot.setLayoutY(0);
                 flower_pot.setOnMouseClicked(e -> {
-                    System.out.println("Flower Pot clicked");
+                    model.player.addItem(Model.REDKEY);
                 });
                 center.getChildren().addAll(flower_pot, arrow_back);
                 break;
