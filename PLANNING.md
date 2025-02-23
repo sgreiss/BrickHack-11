@@ -10,5 +10,7 @@
 - Numbers displayed on the wall to correspond to combination lock
 - UV Light
 - 
-# Potential additions
-- Magnifying glass
+# Model Needs
+- Model.advance(interactable)
+- Model.retreat(interactable)
+- 

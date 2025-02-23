@@ -29,7 +29,7 @@ public class Gui extends Application implements Observer<Model, String> {
 
     private ImageView arrow_left = new ImageView();
     private ImageView arrow_right = new ImageView();
-    private ImageView arrow_down = new ImageView();
+    private ImageView arrow_back = new ImageView();
 
     @Override
     public void init() {
@@ -120,6 +120,7 @@ public class Gui extends Application implements Observer<Model, String> {
                     break;
                 case 3:
                     screen3();
+                    break;
             }
         }
     }
@@ -182,6 +183,35 @@ public class Gui extends Application implements Observer<Model, String> {
         });
     }
 
+    private void back_arrow() {
+        arrow_back.setImage(src.gui.Images.ARROW_DOWN);
+        arrow_back.setFitWidth(70);
+        arrow_back.setFitHeight(70);
+        arrow_back.setPreserveRatio(true);
+        arrow_back.setPickOnBounds(false);
+        arrow_back.setLayoutX(105);
+        arrow_back.setLayoutY(550);
+        arrow_back.setOnMouseEntered(e -> {
+            arrow_back.setImage(src.gui.Images.ARROW_DOWN_BRIGHT);
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), arrow_back);
+            st.setToX(1.1);
+            st.setToY(1.1);
+            st.play();
+        });
+
+        arrow_back.setOnMouseExited(e -> {
+            arrow_back.setImage(src.gui.Images.ARROW_DOWN);
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), arrow_back);
+            st.setToX(1.0);
+            st.setToY(1.0);
+            st.play();
+        });
+
+        arrow_back.setOnMouseClicked(e -> {
+            //TODO
+        });
+    }
+    
     private void screen0() {
         left_arrow();
         right_arrow();
@@ -415,6 +445,9 @@ public class Gui extends Application implements Observer<Model, String> {
         root.setBottom(null);
     }
 
+    private void zoom_screen() {
+
+    }
     // @Override
     // public void stop() {
     //     model.exit();
