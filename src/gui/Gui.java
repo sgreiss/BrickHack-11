@@ -545,6 +545,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 flower_pot.setLayoutY(0);
                 flower_pot.setOnMouseClicked(e -> {
                     model.player.addItem(Model.REDKEY);
+                    flower_pot.setImage(src.gui.Images.FLOWERPOT_EMPTY);
                 });
                 center.getChildren().addAll(flower_pot, arrow_back);
                 break;
