@@ -1,6 +1,9 @@
 package src.gui;
 import src.gui.Model;
 import src.gui.Observer;
+import src.interactables.HintCarrier;
+import src.interactables.Interactable;
+import src.interactables.HintCarrier.h_type;
 import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -104,10 +107,9 @@ public class Gui extends Application implements Observer<Model, String> {
 
     @Override
     public void update(Model model, String message) {
-        //TODO: add key bind commands
         System.out.println(message);
 
-        if(message.length() >=16 && message.substring(0, 16).equals("Turned to screen")) {
+        if(message.length() >= 16 && message.substring(0, 16).equals("Turned to screen")) {
             switch(Integer.parseInt(String.valueOf(message.charAt(17)))) {
                 case 0:
                     screen0();
@@ -122,6 +124,9 @@ public class Gui extends Application implements Observer<Model, String> {
                     screen3();
                     break;
             }
+        }
+        else if(message.length() >= 11 && message.substring(0, 11).equals("Advanced to")) {
+            zoom_screen(message.substring(12));
         }
     }
 
@@ -189,8 +194,8 @@ public class Gui extends Application implements Observer<Model, String> {
         arrow_back.setFitHeight(70);
         arrow_back.setPreserveRatio(true);
         arrow_back.setPickOnBounds(false);
-        arrow_back.setLayoutX(105);
-        arrow_back.setLayoutY(550);
+        arrow_back.setLayoutX(310);
+        arrow_back.setLayoutY(570);
         arrow_back.setOnMouseEntered(e -> {
             arrow_back.setImage(src.gui.Images.ARROW_DOWN_BRIGHT);
             ScaleTransition st = new ScaleTransition(Duration.millis(150), arrow_back);
@@ -208,7 +213,7 @@ public class Gui extends Application implements Observer<Model, String> {
         });
 
         arrow_back.setOnMouseClicked(e -> {
-            //TODO
+            model.retreat();
         });
     }
     
@@ -232,7 +237,7 @@ public class Gui extends Application implements Observer<Model, String> {
         hat_rack.setLayoutX(-60);
         hat_rack.setLayoutY(245);
         hat_rack.setOnMouseClicked(e -> {
-            System.out.println("Hanger clicked");
+            model.advance(Model.COATRACK);
         });
 
         ImageView door = new ImageView(src.gui.Images.DOOR_CLOSED);
@@ -254,7 +259,7 @@ public class Gui extends Application implements Observer<Model, String> {
         umbrella_holder.setLayoutX(450);
         umbrella_holder.setLayoutY(380);
         umbrella_holder.setOnMouseClicked(e -> {
-            System.out.println("Umbrella clicked");
+            model.advance(Model.UMBRELLAHOLDER);
         });
 
         center.getChildren().addAll(background, hat_rack, door, umbrella_holder, arrow_left, arrow_right);
@@ -290,7 +295,7 @@ public class Gui extends Application implements Observer<Model, String> {
         flowerpot.setLayoutX(155);
         flowerpot.setLayoutY(230);
         flowerpot.setOnMouseClicked(e -> {
-            System.out.println("Flowerpot clicked");
+            model.advance(Model.FLOWERPOT);
         });
 
         ImageView receipt_table = new ImageView(src.gui.Images.RECEIPT_TABLE_SIDE);
@@ -301,7 +306,7 @@ public class Gui extends Application implements Observer<Model, String> {
         receipt_table.setLayoutX(-30);
         receipt_table.setLayoutY(245);
         receipt_table.setOnMouseClicked(e -> {
-            System.out.println("Receipt Table clicked");
+            model.advance(Model.RECEIPTTABLE);
         });
 
         ImageView briefcase = new ImageView(src.gui.Images.BRIEFCASE_CLOSED);
@@ -312,7 +317,7 @@ public class Gui extends Application implements Observer<Model, String> {
         briefcase.setLayoutX(235);
         briefcase.setLayoutY(340);
         briefcase.setOnMouseClicked(e -> {
-            System.out.println("Briefcase clicked");
+            model.advance(Model.BRIEFCASE);
         });
 
         ImageView vent = new ImageView(src.gui.Images.VENT_FAR);
@@ -323,7 +328,7 @@ public class Gui extends Application implements Observer<Model, String> {
         vent.setLayoutX(460);
         vent.setLayoutY(470);
         vent.setOnMouseClicked(e -> {
-            System.out.println("Vent clicked");
+            model.advance(Model.VENT);
         });
 
         center.getChildren().addAll(background, receipt_table, window, flowerpot, briefcase, vent, arrow_left, arrow_right);
@@ -352,7 +357,7 @@ public class Gui extends Application implements Observer<Model, String> {
         dresser.setLayoutX(-30);
         dresser.setLayoutY(230);
         dresser.setOnMouseClicked(e -> {
-            System.out.println("Dresser clicked");
+            model.advance(Model.CABINET);
         });
 
         ImageView banana_table = new ImageView(src.gui.Images.BANANA_TABLE);
@@ -363,7 +368,7 @@ public class Gui extends Application implements Observer<Model, String> {
         banana_table.setLayoutX(250);
         banana_table.setLayoutY(245);
         banana_table.setOnMouseClicked(e -> {
-            System.out.println("Banana Table clicked");
+            model.advance(Model.BANANATABLE);
         });
 
         center.getChildren().addAll(background, dresser, banana_table, arrow_left, arrow_right);
@@ -400,7 +405,7 @@ public class Gui extends Application implements Observer<Model, String> {
         hint_painting.setLayoutX(80);
         hint_painting.setLayoutY(100);
         hint_painting.setOnMouseClicked(e -> {
-            System.out.println("Hint Painting clicked");
+            model.advance(Model.PAINTING);
         });
 
         ImageView safe = new ImageView(src.gui.Images.SAFE_CLOSED);
@@ -411,42 +416,213 @@ public class Gui extends Application implements Observer<Model, String> {
         safe.setLayoutX(60);
         safe.setLayoutY(360);
         safe.setOnMouseClicked(e -> {
-            System.out.println("Safe clicked");
+            model.advance(Model.SAFE);
         });
 
         ImageView bookshelf = new ImageView(src.gui.Images.BOOKSHELF);
         bookshelf.setFitWidth(300);
         bookshelf.setFitHeight(300);
         bookshelf.setPreserveRatio(true);
-        bookshelf.setPickOnBounds(false);
-        bookshelf.setLayoutX(330);
+        bookshelf.setLayoutX(320);
         bookshelf.setLayoutY(340);
-        bookshelf.setOnMouseClicked(e -> {
-            System.out.println("Bookshelf clicked");
-        });
 
         ImageView red_book = new ImageView(src.gui.Images.RED_BOOK_CLOSED);
         red_book.setFitWidth(400);
         red_book.setFitHeight(400);
         red_book.setPreserveRatio(true);
-        red_book.setLayoutX(300);
-        red_book.setLayoutY(280);
+        red_book.setPickOnBounds(false);
+        red_book.setLayoutX(295);
+        red_book.setLayoutY(275);
+        red_book.setOnMouseClicked(e -> {
+            model.advance(Model.REDBOOK);
+        });
 
         ImageView blue_book = new ImageView(src.gui.Images.BLUE_BOOK_SIDE);
         blue_book.setFitWidth(300);
         blue_book.setFitHeight(300);
         blue_book.setPreserveRatio(true);
+        blue_book.setPickOnBounds(false);
         blue_book.setLayoutX(330);
         blue_book.setLayoutY(340);
-
+        blue_book.setOnMouseClicked(e -> {
+            model.advance(Model.BLUEBOOK);
+        });
         center.getChildren().addAll(background, normal_painting, hint_painting, safe, bookshelf, red_book, blue_book, arrow_left, arrow_right);
 
         root.setCenter(center);
         root.setBottom(null);
     }
 
-    private void zoom_screen() {
+    private void zoom_screen(String interactable) {
+        back_arrow();
 
+        root.setStyle("-fx-background-color: #666666;");
+        center = new Pane();
+
+        switch(interactable) {
+            case "Coat Rack": 
+                ImageView hat_rack = new ImageView(src.gui.Images.HAT_RACK_ZOOM);
+                hat_rack.setFitWidth(650);
+                hat_rack.setFitHeight(650);
+                hat_rack.setPreserveRatio(true);
+                hat_rack.setLayoutX(0);
+                hat_rack.setLayoutY(0);
+                hat_rack.setOnMouseClicked(e -> {
+                    System.out.println("Hanger clicked");
+                });
+                center.getChildren().addAll(hat_rack, arrow_back);
+                break;
+            case "Umbrella Holder": 
+                ImageView umbrella_holder = new ImageView(src.gui.Images.UMBRELLA_SCREWDRIVER);
+                umbrella_holder.setFitWidth(650);
+                umbrella_holder.setFitHeight(650);
+                umbrella_holder.setPreserveRatio(true);
+                umbrella_holder.setLayoutX(0);
+                umbrella_holder.setLayoutY(0);
+                umbrella_holder.setOnMouseClicked(e -> {
+                    System.out.println("Umbrella clicked");
+                });
+                center.getChildren().addAll(umbrella_holder, arrow_back);
+                break;
+            case "Receipt Table": 
+                ImageView receipt_table = new ImageView(src.gui.Images.RECEIPT_TABLE_TOP);
+                receipt_table.setFitWidth(650);
+                receipt_table.setFitHeight(650);
+                receipt_table.setPreserveRatio(true);
+                receipt_table.setLayoutX(0);
+                receipt_table.setLayoutY(0);
+                ImageView banana_receipt = new ImageView(src.gui.Images.BANANA_RECEIPT);
+                banana_receipt.setFitWidth(300);
+                banana_receipt.setFitHeight(300);
+                banana_receipt.setPreserveRatio(true);
+                banana_receipt.setLayoutX(50);
+                banana_receipt.setLayoutY(150);
+                banana_receipt.setOnMouseClicked(e -> {
+                    System.out.println("Banana Receipt clicked");
+                });
+                ImageView flower_receipt = new ImageView(src.gui.Images.FLOWER_RECEIPT);
+                flower_receipt.setFitWidth(300);
+                flower_receipt.setFitHeight(300);
+                flower_receipt.setPreserveRatio(true);
+                flower_receipt.setLayoutX(300);
+                flower_receipt.setLayoutY(150);
+                flower_receipt.setOnMouseClicked(e -> {
+                    System.out.println("Flower Receipt clicked");
+                });
+                center.getChildren().addAll(receipt_table, banana_receipt, flower_receipt, arrow_back);
+                break;
+            case "Flower Pot": 
+                ImageView flower_pot = new ImageView(src.gui.Images.FLOWERPOT_KEY);
+                flower_pot.setFitWidth(650);
+                flower_pot.setFitHeight(650);
+                flower_pot.setPreserveRatio(true);
+                flower_pot.setLayoutX(0);
+                flower_pot.setLayoutY(0);
+                flower_pot.setOnMouseClicked(e -> {
+                    System.out.println("Flower Pot clicked");
+                });
+                center.getChildren().addAll(flower_pot, arrow_back);
+                break;
+            case "Vent": 
+                ImageView vent = new ImageView(src.gui.Images.VENT_ZOOM);
+                vent.setFitWidth(650);
+                vent.setFitHeight(650);
+                vent.setPreserveRatio(true);
+                vent.setLayoutX(0);
+                vent.setLayoutY(0);
+                vent.setOnMouseClicked(e -> {
+                    System.out.println("Vent clicked");
+                });
+                center.getChildren().addAll(vent, arrow_back);
+                break;
+            case "Briefcase": 
+                ImageView briefcase = new ImageView(src.gui.Images.BRIEFCASE_TOP);
+                briefcase.setFitWidth(650);
+                briefcase.setFitHeight(650);
+                briefcase.setPreserveRatio(true);
+                briefcase.setLayoutX(0);
+                briefcase.setLayoutY(0);
+                briefcase.setOnMouseClicked(e -> {
+                    System.out.println("Briefcase clicked");
+                });
+                center.getChildren().addAll(briefcase, arrow_back);
+                break;
+            case "Dresser Cabinet", "Dresser Drawer": 
+                ImageView dresser = new ImageView(src.gui.Images.DRESSER_CLOSED);
+                dresser.setFitWidth(650);
+                dresser.setFitHeight(650);
+                dresser.setPreserveRatio(true);
+                dresser.setLayoutX(0);
+                dresser.setLayoutY(0);
+                dresser.setOnMouseClicked(e -> {
+                    System.out.println("Dresser clicked");
+                });
+                center.getChildren().addAll(dresser, arrow_back);
+                break;
+            case "Banana Table": 
+                ImageView banana_table = new ImageView(src.gui.Images.BANANA_TABLE_ZOOM);
+                banana_table.setFitWidth(650);
+                banana_table.setFitHeight(650);
+                banana_table.setPreserveRatio(true);
+                banana_table.setLayoutX(0);
+                banana_table.setLayoutY(0);
+                banana_table.setOnMouseClicked(e -> {
+                    System.out.println("Banana Table clicked");
+                });
+                center.getChildren().addAll(banana_table, arrow_back);
+                break;
+                case "Painting": 
+                ImageView painting = new ImageView(src.gui.Images.PAINTING_NOTE_ZOOM);
+                painting.setFitWidth(650);
+                painting.setFitHeight(650);
+                painting.setPreserveRatio(true);
+                painting.setLayoutX(0);
+                painting.setLayoutY(0);
+                painting.setOnMouseClicked(e -> {
+                    System.out.println("Painting clicked");
+                });
+                center.getChildren().addAll(painting, arrow_back);
+                break;
+                case "Safe": 
+                ImageView safe = new ImageView(src.gui.Images.COMBO_LOCK_ZOOM);
+                safe.setFitWidth(650);
+                safe.setFitHeight(650);
+                safe.setPreserveRatio(true);
+                safe.setLayoutX(0);
+                safe.setLayoutY(0);
+                safe.setOnMouseClicked(e -> {
+                    System.out.println("Banana Table clicked");
+                });
+                center.getChildren().addAll(safe, arrow_back);
+                break;
+                case "Red Book": 
+                ImageView red_book = new ImageView(src.gui.Images.RED_BOOK_ZOOM);
+                red_book.setFitWidth(650);
+                red_book.setFitHeight(650);
+                red_book.setPreserveRatio(true);
+                red_book.setLayoutX(0);
+                red_book.setLayoutY(0);
+                red_book.setOnMouseClicked(e -> {
+                    System.out.println("Red Book clicked");
+                });
+                center.getChildren().addAll(red_book, arrow_back);
+                break;
+            case "Blue Book": 
+                ImageView blue_book = new ImageView(src.gui.Images.BLUE_BOOK_ZOOM);
+                blue_book.setFitWidth(650);
+                blue_book.setFitHeight(650);
+                blue_book.setPreserveRatio(true);
+                blue_book.setLayoutX(0);
+                blue_book.setLayoutY(0);
+                blue_book.setOnMouseClicked(e -> {
+                    System.out.println("Blue Book clicked");
+                });
+                center.getChildren().addAll(blue_book, arrow_back);
+                break;
+        }
+
+        root.setCenter(center);
+        root.setBottom(null);
     }
     // @Override
     // public void stop() {
