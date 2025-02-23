@@ -502,6 +502,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 umbrella_holder.setLayoutY(0);
                 umbrella_holder.setOnMouseClicked(e -> {
                     model.player.addItem(Model.SCREWDRIVER);
+                    umbrella_holder.setImage(src.gui.Images.UMBRELLA_EMPTY);
                 });
                 center.getChildren().addAll(umbrella_holder, arrow_back);
                 break;
