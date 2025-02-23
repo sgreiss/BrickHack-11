@@ -32,6 +32,7 @@ import src.items.Item;
 public class Gui extends Application implements Observer<Model, String> {
     private static Model model;
 
+    private boolean notebookselection;
     private Label gameMessage;
     private BorderPane root = new BorderPane();
     private Pane center = new Pane();
@@ -116,7 +117,7 @@ public class Gui extends Application implements Observer<Model, String> {
                 stop();
             }
         });
-
+        notebookselection = true;
         stage.setScene(new Scene(root, 650, 700));
         stage.show();
     }
@@ -128,6 +129,8 @@ public class Gui extends Application implements Observer<Model, String> {
         if(message.length() >= 16 && message.substring(0, 16).equals("Turned to screen")) {
             if (model.controls()) {
                 controls_screen();
+            } else if (model.notebook()) {
+                notebook_screen();
             } else if (model.inventory()) {
                 inventory_screen();
             } else {
@@ -701,7 +704,7 @@ public class Gui extends Application implements Observer<Model, String> {
         notebook.setLayoutX(45);
         notebook.setLayoutY(145);
         notebook.setOnMouseClicked(e -> {
-            System.out.println("Notebook clicked");
+            System.out.println("Notebook active");
         });
 
         for (int j = 0; j < model.player.getInventory().length; j++) {
@@ -771,6 +774,10 @@ public class Gui extends Application implements Observer<Model, String> {
         use.setLayoutX(400);
         use.setLayoutY(500);
         use.setOnMouseClicked(e -> {
+            if (notebookselection) {
+                notebookselection = false;
+                model.toggleNotebook();
+            }
             System.out.println("Use clicked");
         });
 

@@ -2,6 +2,7 @@ package src;
 import src.interactables.*;
 import src.items.Item;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Player {
@@ -44,7 +45,10 @@ public class Player {
         String str = hint.getContents();
         notebook.add(str);
         known_hints[Integer.parseInt(str.substring(str.length() - 1))] = true;
-    }   
+    }
+    public ArrayList<String> getNotebook() {
+        return notebook;
+    }
     public Item getEquipped() {
         return equipped;
     }

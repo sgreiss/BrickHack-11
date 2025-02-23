@@ -86,7 +86,8 @@ public class Model {
 
     //If the inventory screen is currently open
     private static boolean inventoryscreen;
-
+    //if the notebook is currently open
+    private static boolean insidenotebook;
 
     //Observers
     private final List<Observer<Model, String>> observers;
@@ -146,6 +147,8 @@ public class Model {
         RECEIPTTABLE.setImage(Arrays.asList(Images.RECEIPT_TABLE_SIDE, Images.RECEIPT_TABLE_TOP));
         BANANATABLE.placeOnTop(BANANABOWL);
         BANANATABLE.setImage(Arrays.asList(Images.BANANA_TABLE, Images.EMPTY_TABLE));
+        inventoryscreen = false;
+        insidenotebook = false;
         
         ready();
     }
@@ -211,8 +214,24 @@ public class Model {
             notifyObservers(String.format("Turned to screen %d", currentscreen));
         }
     }
-
+    public void toggleNotebook(){
+        if (inventoryscreen){
+            insidenotebook = !insidenotebook;
+        }
+        if (insidenotebook){
+            notifyObservers("Turned to screen notebook");
+        } else {
+            notifyObservers("Turned to screen inventory");
+        }
+    }
+    public void pickup(Item i){
+        player.addItem(i);
+        notifyObservers("Picked up " + i.getName());   
+    }
     public boolean inventory() {
         return inventoryscreen;
+    }
+    public boolean notebook(){
+        return insidenotebook;
     }
 }
