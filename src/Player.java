@@ -1,19 +1,20 @@
 package src;
-import src.interactables.Hint;
-import src.interactables.Interactable;
+import src.interactables.*;
 import src.items.Item;
 
 import java.util.*;
 
 public class Player {
     private static Item[] inventory;
-    private ArrayList<String> notebook;
-    private static boolean[] known_hints;
+    private Item equipped;
+    private ArrayList<String> notebook; //access discovered hints
+    private static boolean[] known_hints; //keeps track of discovered hints
 
 
     public Player() {
         inventory = new Item[6];
         notebook = new ArrayList<>();
+        known_hints = new boolean[]{false, false, false, false, false, false, false, false, false};
     }
 
     public void addItem(Item i) {
@@ -24,7 +25,12 @@ public class Player {
             }
         }
     }
+    public void equipItem(int index) {
+        equipped = inventory[index];
+    }
     public void writeInNotebook(Hint hint) {
-        notebook.add(hint.getContents());
+        String str = hint.getContents();
+        notebook.add(str);
+        known_hints[Integer.parseInt(str.substring(str.length() - 1))] = true;
     }   
 }

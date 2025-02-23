@@ -9,6 +9,11 @@ public class Lock extends Unlockable {
         super(u_type.KEYLOCK, name);
         this.key = key;
     }
+    /**
+     * attempts to unlock the lock using an item
+     * @param i: the item to be used
+     * @return true if the item is a key and successfully unlocks the lock, false otherwise
+     */
     public boolean keyUnlock(Item i){
         if ((i instanceof LockKey) && i.getName().equals(key)){
             i.use();

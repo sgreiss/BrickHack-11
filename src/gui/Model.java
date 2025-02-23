@@ -13,7 +13,7 @@ public class Model {
     }
     //Game Messages
     public static final String STARTMSG = "READ THE MESSAGE BELOW AND CLICK BUTTON TO START";
-    public static final String WELCOME = "Welcome to the Escape Room!\nYou are trapped in a room and must find a way out.\nUse the items in the room to solve the puzzles and escape.";
+    public static final String WELCOME = "Welcome to the Escape Room!\nYou are trapped in a room and must find a way out.\nUse the items in the room to solve the puzzles and escape.\n\nPress ESC to view keybinds.";
     public static final String UNUSABLE = "This item has no use anymore.";
     public static final String UNDISCOVERED = "No use for this yet.";
     public static final String LOCKED = "This item is locked.";
@@ -43,15 +43,15 @@ public class Model {
     private final Banana BANANA = new Banana();
 
     //9 HINTS TOTAL: Cabinet, Drawer, Briefcase, Red Book, Blue Book, Screwdriver, Painting, Receipt1, Receipt2
-    private final Hint HINTCAB = new Hint("Hint 1", "2 _ _ _");
-    private final Hint HINTDRA = new Hint("Hint 2", "_ 6 _ _");
-    private final Hint HINTBRI = new Hint("Hint 3", "_ _ _ 0");
-    private final Hint HINTRED = new Hint("Hint 4", "_ _ 2 _");
-    private final Hint HINTBLU = new Hint("Hint 5", "My head's getting cold...");
-    private final Hint HINTSCR = new Hint("Hint 6", "Could this unscrew something?");
-    private final Hint HINTPAI = new Hint("Hint 7", "It's really pouring outside...");
-    private final Hint HINTRC1 = new Hint("Hint 8", "He has a bowl for just a single banana?");
-    private final Hint HINTRC2 = new Hint("Hint 9", "A receipt for only a single flower?");    
+    private final Hint HINTCAB = new Hint("Hint 0", "2 _ _ _");
+    private final Hint HINTDRA = new Hint("Hint 1", "_ 6 _ _");
+    private final Hint HINTBRI = new Hint("Hint 2", "_ _ _ 0");
+    private final Hint HINTRED = new Hint("Hint 3", "_ _ 2 _");
+    private final Hint HINTBLU = new Hint("Hint 4", "My head's getting cold...");
+    private final Hint HINTSCR = new Hint("Hint 5", "Could this unscrew something?");
+    private final Hint HINTPAI = new Hint("Hint 6", "It's really pouring outside...");
+    private final Hint HINTRC1 = new Hint("Hint 7", "He has a bowl for just a single banana?");
+    private final Hint HINTRC2 = new Hint("Hint 8", "A receipt for only a single flower?");    
 
     //13 HINTHOLDERS TOTAL
     private final HintCarrier VENT = new HintCarrier(h_type.LOCK, "Vent", VENTSCREW);
@@ -75,9 +75,6 @@ public class Model {
     private final Table TABLE2 = new Table("Table2");
 
     //Current screen
-    private static final int SCREENS = 4;
-    private static final int MAX_SCREEN_POS = 3;
-    private static final int MIN_SCREEN_POS = 0;
     private static int currentscreen;
 
 
@@ -101,7 +98,7 @@ public class Model {
     }
 
     public void init() {
-        currentscreen = 1;
+        currentscreen = 0;
         UMBRELLAHOLDER.setItem(SCREWDRIVER);
         FLOWERPOT.setItem(REDKEY);
         COATRACK.setItem(BLUEKEY);
