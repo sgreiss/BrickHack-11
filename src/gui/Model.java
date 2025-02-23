@@ -9,7 +9,7 @@ import src.interactables.*;
 public class Model {
 
     //Game Messages
-    public static final String STARTMSG = "READ THE MESSAGE BELOW AND CLICK ANYWHERE TO START";
+    public static final String STARTMSG = "READ THE MESSAGE BELOW AND CLICK BUTTON TO START";
     public static final String WELCOME = "Welcome to the Escape Room!\n You are trapped in a room and must find a way out.\n Use the items in the room to solve the puzzles and escape.";
     public static final String UNUSABLE = "This item has no use anymore.";
     public static final String UNDISCOVERED = "No use for this yet.";
