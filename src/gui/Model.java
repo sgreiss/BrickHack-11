@@ -8,6 +8,9 @@ import src.interactables.*;
 
 public class Model {
 
+    private enum GameStatus {
+        START, TURN, END;
+    }
     //Game Messages
     public static final String STARTMSG = "READ THE MESSAGE BELOW AND CLICK BUTTON TO START";
     public static final String WELCOME = "Welcome to the Escape Room!\n You are trapped in a room and must find a way out.\n Use the items in the room to solve the puzzles and escape.";
@@ -70,8 +73,11 @@ public class Model {
     private final Table TABLE = new Table("Table1");
     private final Table TABLE2 = new Table("Table2");
 
-    //Screen dimensions
-    public static final int DIM = -1;
+    //Current screen
+    private static final int SCREENS = 4;
+    private static final int MAX_SCREEN_POS = 3;
+    private static final int MIN_SCREEN_POS = 0;
+    private static int currentscreen;
 
 
     //Observers
@@ -94,6 +100,7 @@ public class Model {
     }
 
     public void init() {
+        currentscreen = 1;
         UMBRELLAHOLDER.setItem(SCREWDRIVER);
         FLOWERPOT.setItem(REDKEY);
         COATRACK.setItem(BLUEKEY);
@@ -120,6 +127,20 @@ public class Model {
     }
     public boolean isFinished(){
         return GOLDLOCK.isOpen();
+    }
+
+    public void turn(String direction){
+        if (direction.equals("left")) {
+            currentscreen -= 1;
+            if (currentscreen < MIN_SCREEN_POS)
+                currentscreen = MAX_SCREEN_POS;
+        }
+        else if (direction.equals("right")) {
+            currentscreen += 1;
+            if (currentscreen == SCREENS)
+                currentscreen = MIN_SCREEN_POS;
+        }
+        notifyObservers("Turned " + direction);
     }
 
 }
