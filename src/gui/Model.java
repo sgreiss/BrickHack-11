@@ -101,29 +101,35 @@ public class Model {
 
     public void init() {
         currentscreen = 0;
-        VENT.setImage(Arrays.asList(Images.VENT_FAR, Images.VENT_ZOOM, Images.VENT_KEY, Images.VENT_EMPTY));
         UMBRELLAHOLDER.setItem(SCREWDRIVER);
         FLOWERPOT.setItem(REDKEY);
+        FLOWERPOT.setImage(Arrays.asList(Images.FLOWERPOT, Images.FLOWERPOT_KEY, Images.FLOWERPOT_EMPTY));
         COATRACK.setItem(BLUEKEY);
+        COATRACK.setImage(Arrays.asList(Images.HAT_RACK, Images.HAT_RACK_ZOOM, Images.KEY_RACK_ZOOM, Images.EMPTY_RACK_ZOOM, Images.EMPTY_RACK));
         VENT.setItem(GREENKEY);
+        VENT.setImage(Arrays.asList(Images.VENT_FAR, Images.VENT_ZOOM, Images.VENT_KEY, Images.VENT_EMPTY));
         BANANA.setKey(PURPLEKEY);
+        BANANA.setImage(Arrays.asList(Images.BANANA, Images.BANANA_PEEL));
         SAFE.setItem(GOLDKEY);
-        
+        SAFE.setImage(Arrays.asList(Images.SAFE_CLOSED, Images.SAFE_KEY, Images.SAFE_EMPTY, Images.SAFE_OPEN));
         BANANABOWL.setItem(BANANA);
         BANANABOWL.setImage(Arrays.asList(Images.BANANA_TABLE_ZOOM, Images.EMPTY_TABLE_ZOOM));
         CABINET.setHint(HINTCAB);
+        CABINET.setImage(Arrays.asList(Images.DRESSER_CLOSED, Images.CABINET_ZOOM, Images.DRESSER_CABINET, Images.DRESSER_BOTH));
         DRAWER.setHint(HINTDRA);
+        DRAWER.setImage(Arrays.asList(Images.DRESSER_CLOSED, Images.DRAWER_ZOOM, Images.DRESSER_DRAWER, Images.DRESSER_BOTH));
         BRIEFCASE.setHint(HINTBRI);
+        BRIEFCASE.setImage(Arrays.asList(Images.BRIEFCASE_CLOSED, Images.BRIEFCASE_TOP, Images.BRIEFCASE_OPEN));
         REDBOOK.setHint(HINTRED);
         REDBOOK.setImage(Arrays.asList(Images.RED_BOOK_CLOSED, Images.RED_BOOK_ZOOM, Images.RED_BOOK_ZOOM, Images.RED_BOOK_OPEN));
         BLUEBOOK.setHint(HINTBLU);
         BLUEBOOK.setImage(Arrays.asList(Images.BLUE_BOOK_SIDE, Images.BLUE_BOOK_ZOOM));
         PAINTING.setHint(HINTPAI);
         PAINTING.setImage(Arrays.asList(Images.PAINTING_NOTE, Images.PAINTING_NOTE_ZOOM));
-        RECEIPT1.setHint(HINTRC1);
-
+        RECEIPT1.setHint(HINTRC1);;
         RECEIPT2.setHint(HINTRC2);
         UMBRELLAHOLDER.setHint(HINTSCR);
+        UMBRELLAHOLDER.setImage(Arrays.asList(Images.UMBRELLA_SIDE, Images.UMBRELLA_SCREWDRIVER, Images.UMBRELLA_EMPTY));
         FPAINTING.setHint(new Hint("Fake Hint", "This painting seems completely normal"));
         FPAINTING.setImage(Arrays.asList(Images.PAINTING));
         
