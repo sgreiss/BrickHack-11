@@ -802,6 +802,47 @@ public class Gui extends Application implements Observer<Model, String> {
         root.setCenter(center);
         root.setBottom(null);
     }
+    private void notebook_screen(){
+        back_arrow();
+        Pane oldScreen = (Pane) (root.getCenter());
+        Pane notebookScreen = new Pane();
+
+        ImageView notebook = new ImageView(Images.NOTEBOOK_VIEW);
+        notebook.setFitWidth(650);
+        notebook.setFitHeight(650);
+        notebook.setPreserveRatio(true);
+        notebookScreen.getChildren().addAll(notebook, arrow_back);
+
+        for (int j = 0; j < model.player.getNotebook().size(); j++) {
+            String hint = model.player.getNotebook().get(j);
+            Label hintLabel = new Label(hint);
+            hintLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+            hintLabel.setTextFill(Color.web("#f8f8f8"));
+            hintLabel.setWrapText(true);
+            hintLabel.setMaxWidth(600);
+            hintLabel.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 2, 0, 3, 3);");
+            hintLabel.setLayoutX(25);
+            hintLabel.setLayoutY(25 + 50 * j);
+            notebookScreen.getChildren().add(hintLabel);
+        }
+
+        ImageView close = new ImageView(Images.ARROW_DOWN);
+        notebookScreen.getChildren().add(close);
+        close.setFitWidth(400);
+        close.setFitHeight(150);
+        close.setPreserveRatio(true);
+        close.setPickOnBounds(false);
+        close.setLayoutX(400);
+        close.setLayoutY(500);
+        close.setOnMouseClicked(e -> {
+            System.out.println("Close clicked");
+        });
+
+        StackPane center = new StackPane(oldScreen, notebookScreen);
+
+        root.setCenter(center);
+        root.setBottom(null);
+    }
 
     @Override
     public void stop() {
