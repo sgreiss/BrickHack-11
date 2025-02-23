@@ -128,6 +128,7 @@ public class Images {
     // vent
     public static Image VENT_EMPTY = new Image(Objects.requireNonNull(Images.class.getResourceAsStream(ASSETS_DIR+"/vent/vent_empty.PNG")));
     public static Image VENT_FAR = new Image(Objects.requireNonNull(Images.class.getResourceAsStream(ASSETS_DIR+"/vent/vent_far.PNG")));
+    public static Image VENT_FAR_OPEN = new Image(Objects.requireNonNull(Images.class.getResourceAsStream(ASSETS_DIR+"/vent/vent_far_open.PNG")));
     public static Image VENT_KEY = new Image(Objects.requireNonNull(Images.class.getResourceAsStream(ASSETS_DIR+"/vent/vent_key.PNG")));
     public static Image VENT_ZOOM = new Image(Objects.requireNonNull(Images.class.getResourceAsStream(ASSETS_DIR+"/vent/vent_zoom.PNG")));
 }
