@@ -1,5 +1,4 @@
 package src.gui;
-import java.io.InputStream;
 import java.util.Objects;
 
 import javafx.scene.image.Image;
