@@ -1,4 +1,4 @@
-package src.Interactables;
+package src.interactables;
 
 public abstract class Unlockable extends Interactable {
     public enum u_type{

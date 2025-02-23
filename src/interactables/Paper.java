@@ -1,4 +1,4 @@
-package src.Interactables;
+package src.interactables;
 
 public class Paper extends Interactable {
     private String contents;

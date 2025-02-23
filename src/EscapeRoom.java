@@ -3,8 +3,7 @@ package src;
 import java.util.*;
 
 import src.Item.item_type;
-import src.Interactables.*;
-import src.Interactables.Lock.lock_type;
+import src.interactables.*;
 
 
 public class EscapeRoom {
@@ -14,9 +13,9 @@ public class EscapeRoom {
     //Main function to show functionality of all classes
     public static void main(String[] args) {
         //declaring a KeyLock
-        Lock keylock = new Lock(lock_type.KEY, "Red Lock", "Red Key");
+        KeyLock keylock = new KeyLock("Red Lock", "Red Key");
         //declaring a ComboLock
-        Lock combolock = new Lock(lock_type.COMBO, "Blue Lock", "1357");
+        ComboLock combolock = new ComboLock("Blue Lock", 1357);
         //declaring a Table
         Table table = new Table("Cedar Table");
         //declaring a Screw
@@ -48,7 +47,7 @@ public class EscapeRoom {
         if (combolock.comboUnlock(1357)){
             System.out.println(combolock.getName() + " unlocked with code 1357");
         }
-        if (!keylock.getUsable()){
+        if (keylock.isOpen()){
             System.out.println("Lock already Unlocked");
         }
     }

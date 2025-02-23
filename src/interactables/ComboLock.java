@@ -1,4 +1,4 @@
-package src.Interactables;
+package src.interactables;
 
 public class ComboLock extends Unlockable{
     private int code;
