@@ -645,6 +645,7 @@ public class Gui extends Application implements Observer<Model, String> {
         root.setCenter(center);
         root.setBottom(null);
     }
+
     private void controls_screen() {
         root.setStyle("-fx-background-color: linear-gradient(to bottom, #3a3a3a, #1e1e1e);");
 
@@ -686,11 +687,24 @@ public class Gui extends Application implements Observer<Model, String> {
         Pane oldScreen = (Pane) (root.getCenter());
         Pane inventoryScreen = new Pane();
 
-        ImageView inventory = new ImageView(src.gui.Images.INVENTORY);
+        ImageView inventory = new ImageView(Images.INVENTORY);
         inventory.setFitWidth(650);
         inventory.setFitHeight(650);
         inventory.setPreserveRatio(true);
         inventoryScreen.getChildren().add(inventory);
+
+        Label descriptionLabel = new Label("hello");
+        inventoryScreen.getChildren().add(descriptionLabel);
+        descriptionLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        descriptionLabel.setTextFill(Color.web("#f8f8f8"));
+        descriptionLabel.setWrapText(true);
+        descriptionLabel.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 2, 0, 3, 3);");
+        descriptionLabel.setMinWidth(300);
+        descriptionLabel.setMaxWidth(300);
+        descriptionLabel.setMinHeight(300);
+        descriptionLabel.setMaxHeight(300);
+        descriptionLabel.setLayoutX(340);
+        descriptionLabel.setLayoutY(150);
 
         ImageView notebook = new ImageView(Images.NOTEBOOK_ITEM);
         inventoryScreen.getChildren().add(notebook);
@@ -702,6 +716,7 @@ public class Gui extends Application implements Observer<Model, String> {
         notebook.setLayoutY(145);
         notebook.setOnMouseClicked(e -> {
             System.out.println("Notebook clicked");
+            descriptionLabel.setText("Your notebook. You use this to remember important information.");
         });
 
         for (int j = 0; j < model.player.getInventory().length; j++) {
@@ -757,6 +772,7 @@ public class Gui extends Application implements Observer<Model, String> {
                     item.setLayoutY(y);
                     item.setOnMouseClicked(e -> {
                         System.out.println(String.format("%s clicked", name));
+                        descriptionLabel.setText(i.getDescription());
                     });
                 }
             }
