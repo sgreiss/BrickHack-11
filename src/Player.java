@@ -1,5 +1,7 @@
 package src;
 import src.interactables.Interactable;
+import src.items.Item;
+
 import java.util.*;
 
 public class Player {

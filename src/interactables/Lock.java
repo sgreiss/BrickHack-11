@@ -1,7 +1,7 @@
 package src.interactables;
 
-import src.Item;
-import src.Item.item_type;
+import src.items.Item;
+import src.items.LockKey;
 
 public class Lock extends Unlockable {
     private String key;
@@ -10,7 +10,8 @@ public class Lock extends Unlockable {
         this.key = key;
     }
     public boolean keyUnlock(Item i){
-        if (i.getType() == item_type.KEY && i.getName().equals(key)){
+        if ((i instanceof LockKey) && i.getName().equals(key)){
+            i.use();
             return unlock();
         }
         return false;

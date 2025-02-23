@@ -1,16 +1,17 @@
 package src.interactables;
 
-import src.Item;
-import src.Item.item_type;
+import src.items.Item;
+import src.items.Screwdriver;
 
 public class Screw extends Unlockable {
     public Screw(String screwname) {
         super(u_type.SCREW, screwname);
     }
     public boolean unscrew(Item i) {
-        if (i.getType() != item_type.SCREWDRIVER || !isUsable()){
+        if (!(i instanceof Screwdriver) || !isUsable()){
             return false;
         }
+        i.use();
         return unlock();
     }
 }

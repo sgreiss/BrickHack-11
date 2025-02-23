@@ -2,15 +2,13 @@ package src;
 
 import java.util.*;
 
-import src.Item.item_type;
 import src.interactables.*;
 import src.interactables.HintHolder.h_type;
+import src.items.*;;
+
 
 
 public class EscapeRoom {
-    private static final int NUM_SCREENS = 4;
-    private static final int NUM_ITEMS = 6;
-
     //Main function to show functionality of all classes
     public static void main(String[] args) {
         //declaring a KeyLock
@@ -19,17 +17,19 @@ public class EscapeRoom {
         Table table = new Table("Cedar Table");
         //declaring a Screw
         Screw screw = new Screw("Plus Shape Screw");
-        //declaring a Paper
+        //declaring a Hint
         Hint paper = new Hint("Note", "The code is 1357");
         //declaring a HintHolder
         HintHolder hintholder = new HintHolder(h_type.LOCK, "ComboSafe", keylock);
+        //declaring another HintHolder
+        HintHolder hintholder2 = new HintHolder(h_type.LOCK, "Vent", screw);
 
         //declaring a key
-        Item key = new Item(item_type.KEY, "Red Key");
+        LockKey key = new LockKey("Red Key");
         //declaring a banana
-        Item banana = new Item(item_type.BANANA, "Ripe Banana");
+        Banana banana = new Banana();
         //declaring a screwdriver
-        Item screwdriver = new Item(item_type.SCREWDRIVER, "CAT Screwdriver");
+        Screwdriver screwdriver = new Screwdriver("CAT Screwdriver");
 
         //placing objects on table
         table.placeOnTop(screw);
@@ -41,12 +41,24 @@ public class EscapeRoom {
         System.out.println(table.checkInteractable(2).getName());
 
         //creating dud key
-        Item dudkey = new Item(item_type.KEY, "bad key");
+        LockKey dudkey = new LockKey("bad key");
+
+        //Opening hintholder before being unlocked
+        if (hintholder.getHint() == null){
+            System.out.println("No hint available for " + hintholder.getName());
+        }
+        if (hintholder2.getHint() == null){
+            System.out.println("No hint available for " + hintholder2.getName());
+        }
 
         //unlocking KeyLock
         if (keylock.keyUnlock(key)){
             System.out.println(keylock.getName() + " was unlocked by " + key.getName());
         }
+        if (screw.unscrew(screwdriver)){
+            System.out.println(screw.getName() + " was unscrewed by " + screwdriver.getName());
+        }
+
         hintholder.setHint(paper);
         System.out.println(hintholder.getHint().getContents());
 

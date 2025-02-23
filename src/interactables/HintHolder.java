@@ -1,6 +1,6 @@
 package src.interactables;
 
-import src.Item;
+import src.items.Item;
 
 public class HintHolder extends Interactable {
     public enum h_type{

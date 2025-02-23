@@ -18,5 +18,8 @@ public class Unlockable extends Interactable {
     public boolean isOpen(){
         return !isUsable();
     }
+    public u_type getType(){
+        return type;
+    }
 
 }
