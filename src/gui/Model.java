@@ -11,6 +11,8 @@ public class Model {
     //Game Messages
     public static final String STARTMSG = "READ THE MESSAGE BELOW AND CLICK BUTTON TO START";
     public static final String WELCOME = "Welcome to the Escape Room!\nYou are trapped in a room and must find a way out.\nUse the items in the room to solve the puzzles and escape.\n\nPress ESC in-game to view keybinds.";
+    public static final String CONTROLSMSG = "Game keybinds";
+    public static final String CONTROLS = "Escape: Open/close this screen\nE: Open/close your inventory\nQ: Quit game";
     public static final String UNUSABLE = "This item has no use anymore.";
     public static final String UNDISCOVERED = "No use for this yet.";
     public static final String LOCKED = "This item is locked.";
@@ -74,6 +76,12 @@ public class Model {
     //Current screen
     private static int currentscreen;
 
+    //If the controls screen is currently open
+    private static boolean controlscreen;
+
+    //If the inventory screen is currently open
+    private static boolean inventoryscreen;
+
 
     //Observers
     private final List<Observer<Model, String>> observers;
@@ -132,4 +140,29 @@ public class Model {
         notifyObservers(String.format("Turned to screen %d", currentscreen));
     }
 
+    public void toggleControls() {
+        controlscreen = !controlscreen;
+        if (controlscreen) {
+            notifyObservers("Turned to screen controls");
+        } else {
+            notifyObservers(String.format("Turned to screen %d", currentscreen));
+        }
+    }
+
+    public boolean controls() {
+        return controlscreen;
+    }
+
+    public void toggleInventory() {
+        inventoryscreen = !inventoryscreen;
+        if (inventoryscreen) {
+            notifyObservers("Turned to screen inventory");
+        } else {
+            notifyObservers(String.format("Turned to screen %d", currentscreen));
+        }
+    }
+
+    public boolean inventory() {
+        return inventoryscreen;
+    }
 }

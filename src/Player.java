@@ -12,7 +12,7 @@ public class Player {
 
 
     public Player() {
-        inventory = new Item[6];
+        inventory = new Item[7];
         notebook = new ArrayList<>();
         known_hints = new boolean[]{false, false, false, false, false, false, false, false, false};
     }
@@ -47,5 +47,9 @@ public class Player {
     }   
     public Item getEquipped() {
         return equipped;
+    }
+
+    public Item[] getInventory() {
+        return inventory;
     }
 }

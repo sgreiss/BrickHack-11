@@ -24,6 +24,7 @@ public class Banana extends Item {
         if(state == b_state.BANANA){
             state = b_state.BANANA_PEEL;
             setDesc(PEELDESCRIPTION);
+            use();
             return key;
         }
         return null;

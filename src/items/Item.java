@@ -9,6 +9,7 @@ public class Item extends Interactable {
 
     public Item(String name, String description) {
         super(name);
+        this.name = name;
         this.description = description;
     }
     /*

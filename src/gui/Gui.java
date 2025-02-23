@@ -1,4 +1,8 @@
 package src.gui;
+import javafx.geometry.Pos;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import src.gui.Model;
 import src.gui.Observer;
 import javafx.animation.ScaleTransition;
@@ -19,6 +23,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import javafx.util.Duration;
+import src.items.Banana;
+import src.items.Item;
 
 public class Gui extends Application implements Observer<Model, String> {
     private static Model model;
@@ -98,6 +104,16 @@ public class Gui extends Application implements Observer<Model, String> {
         center.getChildren().add(centerPane);
         root.setCenter(center);
 
+        stage.addEventHandler(KeyEvent.KEY_PRESSED, e -> {
+            if (e.getCode() == KeyCode.ESCAPE && !model.inventory()) {
+                model.toggleControls();
+            } else if (e.getCode() == KeyCode.E && !model.controls()) {
+                model.toggleInventory();
+            } else if (e.getCode() == KeyCode.Q) {
+                stop();
+            }
+        });
+
         stage.setScene(new Scene(root, 650, 700));
         stage.show();
     }
@@ -108,18 +124,24 @@ public class Gui extends Application implements Observer<Model, String> {
         System.out.println(message);
 
         if(message.length() >=16 && message.substring(0, 16).equals("Turned to screen")) {
-            switch(Integer.parseInt(String.valueOf(message.charAt(17)))) {
-                case 0:
-                    screen0();
-                    break;
-                case 1:
-                    screen1();
-                    break;
-                case 2:
-                    screen2();
-                    break;
-                case 3:
-                    screen3();
+            if (model.controls()) {
+                controls_screen();
+            } else if (model.inventory()) {
+                inventory_screen();
+            } else {
+                switch (Integer.parseInt(String.valueOf(message.charAt(17)))) {
+                    case 0:
+                        screen0();
+                        break;
+                    case 1:
+                        screen1();
+                        break;
+                    case 2:
+                        screen2();
+                        break;
+                    case 3:
+                        screen3();
+                }
             }
         }
     }
@@ -415,10 +437,145 @@ public class Gui extends Application implements Observer<Model, String> {
         root.setBottom(null);
     }
 
-    // @Override
-    // public void stop() {
-    //     model.exit();
-    // }
+    private void controls_screen() {
+        root.setStyle("-fx-background-color: linear-gradient(to bottom, #3a3a3a, #1e1e1e);");
+
+        gameMessage = new Label(Model.CONTROLSMSG);
+        gameMessage.setFont(Font.font("Verdana", FontWeight.BOLD, 18));
+        gameMessage.setTextFill(Color.web("#f8f8f8"));
+        gameMessage.setWrapText(true);
+        gameMessage.setMaxWidth(600);
+        gameMessage.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 2, 0, 3, 3);");
+
+        StackPane messagePadding = new StackPane(gameMessage);
+        messagePadding.setPadding(new Insets(10, 20, 20, 20));
+        root.setTop(messagePadding);
+
+        StackPane buttonPadding = new StackPane(new Label(" "));
+        buttonPadding.setPadding(new Insets(20, 20, 50, 20));
+
+        root.setBottom(buttonPadding);
+
+        center = new StackPane();
+
+        Label controlsLabel = new Label(Model.CONTROLS);
+        controlsLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
+        controlsLabel.setTextFill(Color.web("#f8f8f8"));
+        controlsLabel.setWrapText(true);
+        controlsLabel.setMaxWidth(600);
+        controlsLabel.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 2, 0, 3, 3);");
+        controlsLabel.setAlignment(Pos.CENTER);
+
+        StackPane centerPane = new StackPane(controlsLabel);
+        centerPane.setPadding(new Insets(0, 0, 0, 0));
+
+        center.getChildren().add(centerPane);
+        root.setCenter(center);
+    }
+
+    private void inventory_screen() {
+
+        Pane oldScreen = (Pane) (root.getCenter());
+        Pane inventoryScreen = new Pane();
+
+        ImageView inventory = new ImageView(src.gui.Images.INVENTORY);
+        inventory.setFitWidth(650);
+        inventory.setFitHeight(650);
+        inventory.setPreserveRatio(true);
+        inventoryScreen.getChildren().add(inventory);
+
+        ImageView notebook = new ImageView(Images.NOTEBOOK_ITEM);
+        inventoryScreen.getChildren().add(notebook);
+        notebook.setFitWidth(65);
+        notebook.setFitHeight(65);
+        notebook.setPreserveRatio(true);
+        notebook.setPickOnBounds(true);
+        notebook.setLayoutX(45);
+        notebook.setLayoutY(145);
+        notebook.setOnMouseClicked(e -> {
+            System.out.println("Notebook clicked");
+        });
+
+        for (int j = 0; j < model.player.getInventory().length; j++) {
+            Item i = model.player.getInventory()[j];
+            if (i != null) {
+                String name = i.getName();
+                Image imagestr = null;
+                if (name.contains("Key")) {
+                    if (name.contains("Red")) {
+                        imagestr = Images.RED_KEY;
+                    } else if (name.contains("Blue")) {
+                        imagestr = Images.BLUE_KEY;
+                    } else if (name.contains("Purple")) {
+                        imagestr = Images.PURPLE_KEY;
+                    } else if (name.contains("Green")) {
+                        imagestr = Images.GREEN_KEY;
+                    } else if (name.contains("Gold")) {
+                        imagestr = Images.GOLD_KEY;
+                    }
+                } else if (name.contains("Banana")) {
+                    if (i.isUsable()) {
+                        imagestr = Images.BANANA;
+                    } else {
+                        imagestr = Images.BANANA_PEEL;
+                    }
+                } else if (name.contains("Screwdriver")) {
+                    imagestr = Images.SCREWDRIVER;
+                }
+                int x = 0;
+                int y = 0;
+                if (imagestr != null) {
+                    if (j % 2 == 0) {
+                        x = 195;
+                    } else {
+                        x = 45;
+                    }
+                    if (j < 1) {
+                        y = 145;
+                    } else if (j < 3) {
+                        y = 280;
+                    } else if (j < 5) {
+                        y = 410;
+                    } else {
+                        y = 545;
+                    }
+                    ImageView item = new ImageView(imagestr);
+                    inventoryScreen.getChildren().add(item);
+                    item.setFitWidth(65);
+                    item.setFitHeight(65);
+                    item.setPreserveRatio(true);
+                    item.setPickOnBounds(true);
+                    item.setLayoutX(x);
+                    item.setLayoutY(y);
+                    item.setOnMouseClicked(e -> {
+                        System.out.println(String.format("%s clicked", name));
+                    });
+                }
+            }
+        }
+
+        ImageView use = new ImageView(Images.USE_BUTTON);
+        inventoryScreen.getChildren().add(use);
+        use.setFitWidth(400);
+        use.setFitHeight(150);
+        use.setPreserveRatio(true);
+        use.setPickOnBounds(false);
+        use.setLayoutX(400);
+        use.setLayoutY(500);
+        use.setOnMouseClicked(e -> {
+            System.out.println("Use clicked");
+        });
+
+        StackPane center = new StackPane(oldScreen, inventoryScreen);
+
+        root.setCenter(center);
+        root.setBottom(null);
+    }
+
+    @Override
+    public void stop() {
+         System.exit(0);
+     }
 
     public static void main(String[] args) {
         Application.launch(args);
