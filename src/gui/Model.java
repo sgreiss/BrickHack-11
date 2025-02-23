@@ -42,10 +42,6 @@ public class Model {
     public final Banana BANANA = new Banana();
 
     //9 HINTS TOTAL: Cabinet, Drawer, Briefcase, Red Book, Blue Book, Screwdriver, Painting, Receipt1, Receipt2
-    public final Hint HINTCAB = new Hint("Hint 0", "2 _ _ _");
-    public final Hint HINTDRA = new Hint("Hint 1", "_ 6 _ _");
-    public final Hint HINTBRI = new Hint("Hint 2", "_ _ _ 0");
-    public final Hint HINTRED = new Hint("Hint 3", "_ _ 2 _");
     public final Hint HINTBLU = new Hint("Hint 4", "My head's getting cold...");
     public final Hint HINTSCR = new Hint("Hint 5", "Could this unscrew something?");
     public final Hint HINTPAI = new Hint("Hint 6", "It's really pouring outside...");
@@ -64,7 +60,7 @@ public class Model {
     public final HintCarrier BLUEBOOK = new HintCarrier(h_type.NOLOCK, "Blue Book", null);
     public final HintCarrier FLOWERPOT = new HintCarrier(h_type.NOLOCK, "Flower Pot", null);
     public final HintCarrier BANANABOWL = new HintCarrier(h_type.NOLOCK, "Banana Bowl", null);
-    public final HintCarrier COATRACK = new HintCarrier(h_type.NOLOCK, "Coat Rack", null);
+    public static final HintCarrier COATRACK = new HintCarrier(h_type.NOLOCK, "Coat Rack", null);
     public final HintCarrier UMBRELLAHOLDER = new HintCarrier(h_type.NOLOCK, "Umbrella Holder", null);
     public final HintCarrier PAINTING = new HintCarrier(h_type.NOLOCK, "Painting", null);
     public final HintCarrier FPAINTING = new HintCarrier(h_type.NOLOCK, "Herring Painting", null);
