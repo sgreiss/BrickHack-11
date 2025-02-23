@@ -45,4 +45,7 @@ public class Player {
         notebook.add(str);
         known_hints[Integer.parseInt(str.substring(str.length() - 1))] = true;
     }   
+    public Item getEquipped() {
+        return equipped;
+    }
 }

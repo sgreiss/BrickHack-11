@@ -10,7 +10,7 @@ public class Model {
 
     //Game Messages
     public static final String STARTMSG = "READ THE MESSAGE BELOW AND CLICK BUTTON TO START";
-    public static final String WELCOME = "Welcome to the Escape Room!\nYou are trapped in a room and must find a way out.\nUse the items in the room to solve the puzzles and escape.\n\nPress ESC to view keybinds.";
+    public static final String WELCOME = "Welcome to the Escape Room!\nYou are trapped in a room and must find a way out.\nUse the items in the room to solve the puzzles and escape.\n\nPress ESC in-game to view keybinds.";
     public static final String UNUSABLE = "This item has no use anymore.";
     public static final String UNDISCOVERED = "No use for this yet.";
     public static final String LOCKED = "This item is locked.";
