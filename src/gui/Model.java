@@ -15,6 +15,7 @@ public class Model {
     }
 
     //Game Messages
+    public static final String STARTMSG = "Welcome to the Escape Room! You are trapped in a room and must find a way out. Use the items in the room to solve the puzzles and escape. Type 'help' for a list of commands.";
     public static final String UNUSABLE = "This item has no use anymore.";
     public static final String UNDISCOVERED = "No use for this yet.";
     public static final String LOCKED = "This item is locked.";
@@ -36,7 +37,7 @@ public class Model {
     private final LockKey BLUEKEY = new LockKey("Blue Key");
     private final LockKey GREENKEY = new LockKey("Green Key");
     private final LockKey PURPLEKEY = new LockKey("Purple Key");
-    private final LockKey GOLDKEY = new LockKey("Gold Key");
+    private final LockKey GOLDKEY = new LockKey("Gold Key"); //FINAL GOAL
     //2 other items
     private final Screwdriver SCREWDRIVER = new Screwdriver("Screwdriver");
     private final Banana BANANA = new Banana();
@@ -72,9 +73,6 @@ public class Model {
     private final Table TABLE = new Table("Table1");
     private final Table TABLE2 = new Table("Table2");
 
-    //FINAL GOAL
-    private final HintHolder DOOR = new HintHolder(h_type.LOCK, "Door", GOLDLOCK);
-
     //Screen dimensions
     public static final int DIM = -1;
     private String[][] screen;
@@ -90,6 +88,11 @@ public class Model {
     }
     public void addObserver(Observer<Model, String> observer) {
         this.observers.add(observer);
+    }
+    private void notifyObservers(String message) {
+        for (Observer<Model, String> observer : observers) {
+            observer.update(this, message);
+        }
     }
 
     public void init() {
@@ -116,6 +119,10 @@ public class Model {
         TABLE.placeOnTop(RECEIPT2);
         TABLE2.placeOnTop(BANANABOWL);
         
+        notifyObservers(STARTMSG);
+    }
+    public boolean isFinished(){
+        return GOLDLOCK.isOpen();
     }
 
 }
