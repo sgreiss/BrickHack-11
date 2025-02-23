@@ -1,4 +1,4 @@
-package src.Interactables;
+package src.interactables;
 
 public class ComboLock extends Unlockable{
     private int code;
@@ -6,6 +6,11 @@ public class ComboLock extends Unlockable{
         super(u_type.COMBO, name);
         this.code = code;
     }
+    /**
+     * Attempts to unlock the lock using a user's guess 
+     * @param guess: the user's guess
+     * @return true if the guess is correct and the lock is unlocked, false otherwise
+     */
     public boolean comboUnlock(int guess){
         if (guess == code){
             return unlock();

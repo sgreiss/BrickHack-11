@@ -1,6 +1,6 @@
-package src.Interactables;
+package src.interactables;
 
-public abstract class Unlockable extends Interactable {
+public class Unlockable extends Interactable {
     public enum u_type{
         KEYLOCK, COMBO, SCREW;
     }
@@ -9,6 +9,10 @@ public abstract class Unlockable extends Interactable {
         super(name);
         this.type = type;
     }
+    /*
+     * attempts to unlock the lock. Assume appropriate key, combo, or screwdriver was used. Fails if the lock is already unlocked
+     * @return true if the lock is successfully unlocked, false otherwise
+     */
     public boolean unlock(){
         if (isUsable()){
             return use();
@@ -17,6 +21,9 @@ public abstract class Unlockable extends Interactable {
     }
     public boolean isOpen(){
         return !isUsable();
+    }
+    public u_type getType(){
+        return type;
     }
 
 }
