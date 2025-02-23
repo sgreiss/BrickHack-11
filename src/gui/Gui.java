@@ -117,6 +117,9 @@ public class Gui extends Application implements Observer<Model, String> {
                     break;
                 case 2:
                     screen2();
+                    break;
+                case 3:
+                    screen3();
             }
         }
     }
@@ -246,7 +249,6 @@ public class Gui extends Application implements Observer<Model, String> {
         window.setFitWidth(470);
         window.setFitHeight(470);
         window.setPreserveRatio(true);
-        window.setPickOnBounds(false);
         window.setLayoutX(90);
         window.setLayoutY(-10);
 
@@ -340,6 +342,79 @@ public class Gui extends Application implements Observer<Model, String> {
         root.setBottom(null);
     }
     
+    private void screen3() {
+        left_arrow();
+        right_arrow();
+
+        root.setStyle("-fx-background-color: #666666;");
+        center = new Pane();
+
+        ImageView background = new ImageView(src.gui.Images.BACKGROUND);
+        background.setFitWidth(650);
+        background.setFitHeight(650);
+        background.setPreserveRatio(true);
+
+        ImageView normal_painting = new ImageView(src.gui.Images.PAINTING);
+        normal_painting.setFitWidth(250);
+        normal_painting.setFitHeight(250);
+        normal_painting.setPreserveRatio(true);
+        normal_painting.setPickOnBounds(false);
+        normal_painting.setLayoutX(320);
+        normal_painting.setLayoutY(100);
+
+        ImageView hint_painting = new ImageView(src.gui.Images.PAINTING_NOTE);
+        hint_painting.setFitWidth(250);
+        hint_painting.setFitHeight(250);
+        hint_painting.setPreserveRatio(true);
+        hint_painting.setPickOnBounds(false);
+        hint_painting.setLayoutX(80);
+        hint_painting.setLayoutY(100);
+        hint_painting.setOnMouseClicked(e -> {
+            System.out.println("Hint Painting clicked");
+        });
+
+        ImageView safe = new ImageView(src.gui.Images.SAFE_CLOSED);
+        safe.setFitWidth(200);
+        safe.setFitHeight(200);
+        safe.setPreserveRatio(true);
+        safe.setPickOnBounds(false);
+        safe.setLayoutX(60);
+        safe.setLayoutY(360);
+        safe.setOnMouseClicked(e -> {
+            System.out.println("Safe clicked");
+        });
+
+        ImageView bookshelf = new ImageView(src.gui.Images.BOOKSHELF);
+        bookshelf.setFitWidth(300);
+        bookshelf.setFitHeight(300);
+        bookshelf.setPreserveRatio(true);
+        bookshelf.setPickOnBounds(false);
+        bookshelf.setLayoutX(330);
+        bookshelf.setLayoutY(340);
+        bookshelf.setOnMouseClicked(e -> {
+            System.out.println("Bookshelf clicked");
+        });
+
+        ImageView red_book = new ImageView(src.gui.Images.RED_BOOK_CLOSED);
+        red_book.setFitWidth(400);
+        red_book.setFitHeight(400);
+        red_book.setPreserveRatio(true);
+        red_book.setLayoutX(300);
+        red_book.setLayoutY(280);
+
+        ImageView blue_book = new ImageView(src.gui.Images.BLUE_BOOK_SIDE);
+        blue_book.setFitWidth(300);
+        blue_book.setFitHeight(300);
+        blue_book.setPreserveRatio(true);
+        blue_book.setLayoutX(330);
+        blue_book.setLayoutY(340);
+
+        center.getChildren().addAll(background, normal_painting, hint_painting, safe, bookshelf, red_book, blue_book, arrow_left, arrow_right);
+
+        root.setCenter(center);
+        root.setBottom(null);
+    }
+
     // @Override
     // public void stop() {
     //     model.exit();
